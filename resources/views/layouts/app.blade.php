@@ -16,6 +16,11 @@
 <body>
     @include("layouts.header")
     <div id="all">
+        <div class="container">
+            <div class="col-sm-12">
+                @yield("breadcrumbs")
+            </div>
+        </div>
         <div id="content">
         @yield("body")
         </div>

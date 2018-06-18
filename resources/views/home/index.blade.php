@@ -1,5 +1,7 @@
 @extends("layouts.app")
 
+@section("title", __("Trang chủ"))
+
 @section("body")
     {{--Slider--}}
     <div class="container">

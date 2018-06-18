@@ -14,5 +14,10 @@
         "cross-env": "^5.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4"
+    },
+    "dependencies": {
+        "bootstrap": "3.3.7",
+        "font-awesome": "^4.7.0",
+        "jquery": "1.12"
     }
 }

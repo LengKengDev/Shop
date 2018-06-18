@@ -11,4 +11,6 @@
 |
 */
 
-Route::resource("/", "HomeController", ["only" => ["index"]]);
+Route::resource("/", "HomeController", ["only" => ["index"]])->names(["index" => "home"]);
+
+Auth::routes();

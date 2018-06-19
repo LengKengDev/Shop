@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -16,7 +17,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'parent_id', 'slug'
+        'name', 'parent_id', 'slug', 'description'
     ];
 
     /**
@@ -53,13 +54,22 @@ class Category extends Model
     }
 
     /**
+     * get products
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, "category_products");
+    }
+
+    /**
      * get main category(category level 1)
      * @param $query
      * @return mixed
      */
     public function scopeMainCategories($query)
     {
-        return $query->whereNull('parent_id');
+        return $query->with(["parent", "childs"])->whereNull('parent_id');
     }
 
     /**

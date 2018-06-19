@@ -16,3 +16,5 @@ Auth::routes();
 Route::resource("/", "HomeController", ["only" => ["index"]])->names(["index" => "home"]);
 
 Route::resource("/categories", "CategoriesController", ["only" => ["index", "show"]]);
+
+Route::resource("/products", "ProductsController", ["only" => ["show"]]);

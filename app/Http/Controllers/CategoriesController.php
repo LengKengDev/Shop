@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -14,7 +15,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view("categories.index");
+        $products = Product::orderBy("name")->paginate(9);
+        return view("categories.index", compact(['products']));
     }
 
     /**
@@ -25,6 +27,13 @@ class CategoriesController extends Controller
      */
     public function show(Category $category)
     {
-        return view("categories.show", compact(["category"]));
+        $products = null;
+        if ($category->parent == null) {
+            $products = Product::subCategoriesProducts($category)->paginate(9);
+        }
+        else {
+            $products = $category->products()->paginate(9);
+        }
+        return view("categories.show", compact(["category", "products"]));
     }
 }

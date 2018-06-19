@@ -46,3 +46,15 @@ Breadcrumbs::for('categories.show2', function ($trail, $category) {
     $trail->parent('categories.show1', $category->parent);
     $trail->push($category->name, route('categories.show', ["category" => $category]));
 });
+
+// products
+Breadcrumbs::for('products.show', function ($trail, $product) {
+    if ($product->categories->first->parent == null) {
+        $trail->parent('categories.show1', $product->categories->first);
+    }
+    else {
+        $trail->parent('categories.show2', $product->categories->first->parent);
+    }
+    $trail->push(__("Sản phẩm: :name", ['name' => $product->name]),
+        route('products.show', ["product" => $product]));
+});

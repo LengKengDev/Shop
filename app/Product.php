@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Gloudemans\Shoppingcart\CanBeBought;
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -11,9 +13,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Spatie\MediaLibrary\Models\Media;
 
-class Product extends Model implements HasMedia
+class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait, SoftDeletes, Sluggable;
+    use HasMediaTrait, SoftDeletes, Sluggable, CanBeBought;
     /**
      * @var array
      */
@@ -95,5 +97,29 @@ class Product extends Model implements HasMedia
     public function getRouteKeyName(): string
     {
         return "slug";
+    }
+
+    /**
+     * @param null $options
+     * @return int|mixed|string
+     */
+    public function getBuyableIdentifier($options = null){
+        return $this->id;
+    }
+
+    /**
+     * @param null $options
+     * @return mixed|string
+     */
+    public function getBuyableDescription($options = null){
+        return $this->name;
+    }
+
+    /**
+     * @param null $options
+     * @return float|mixed
+     */
+    public function getBuyablePrice($options = null){
+        return $this->price;
     }
 }

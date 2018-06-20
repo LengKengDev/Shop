@@ -1,1 +1,3 @@
-/** Your theme modifications here **/
+.toast-top-right {
+    top: 130px!important;
+}

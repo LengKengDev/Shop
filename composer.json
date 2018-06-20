@@ -9,10 +9,12 @@
         "cviebrock/eloquent-sluggable": "^4.5",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",
+        "gloudemans/shoppingcart": "^2.5",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-medialibrary": "^7.0.0",
-        "spatie/laravel-permission": "^2.12"
+        "spatie/laravel-permission": "^2.12",
+        "yoeunes/toastr": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

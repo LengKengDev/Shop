@@ -18,3 +18,10 @@ Route::resource("/", "HomeController", ["only" => ["index"]])->names(["index" =>
 Route::resource("/categories", "CategoriesController", ["only" => ["index", "show"]]);
 
 Route::resource("/products", "ProductsController", ["only" => ["show"]]);
+
+Route::resource("/cart", "CartController", [
+    "only" => ["index", "store", "update", "destroy"],
+    "parameters" => ["cart" => "product"]
+]);
+
+Route::resource("/checkout", "CheckoutController", ["only" => ["index", "store", "show"]]);

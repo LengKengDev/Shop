@@ -58,3 +58,15 @@ Breadcrumbs::for('products.show', function ($trail, $product) {
     $trail->push(__("Sản phẩm: :name", ['name' => $product->name]),
         route('products.show', ["product" => $product]));
 });
+
+// Cart
+Breadcrumbs::for('cart.index', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Cart"), route('cart.index'));
+});
+
+// Checkout
+Breadcrumbs::for('checkout.index', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Checkout"), route('checkout.index'));
+});

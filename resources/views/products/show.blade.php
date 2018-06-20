@@ -42,8 +42,15 @@
                         <p class="price">@money($product->price) VND</p>
 
                         <p class="text-center buttons">
-                            <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                            <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
+                            <a href="#" class="btn btn-primary" onclick="event.preventDefault();
+                                   document.getElementById('product-{{$product->id}}').submit();">
+                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
+
+                            <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
+                                {{csrf_field()}}
+                                <input type="hidden" value="{{$product->id}}" name="id">
+                            </form>
                         </p>
 
 

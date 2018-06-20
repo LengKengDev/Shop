@@ -26,7 +26,9 @@ class SampleDataSeeder extends Seeder
                     "parent_id" => $category->id
                 ]);
                 for ($k=0; $k<5; $k++) {
-                    $product = Product::create(["name" => $faker->name]);
+                    $product = Product::create(["name" => $faker->name,
+                        "qty" => 2, "price" => 5, "summary" => $faker->text(100),
+                        "description" => $faker->realText(1000)]);
                     $product->addMediaFromUrl("http://demo.alogs.net/img/product1_2.jpg")
                         ->setFileName(md5(time()).".jpg")->toMediaCollection("images");
                     $sub->products()->attach($product);

@@ -10,6 +10,7 @@
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",
         "gloudemans/shoppingcart": "^2.5",
+        "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-medialibrary": "^7.0.0",

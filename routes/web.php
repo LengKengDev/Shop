@@ -25,3 +25,8 @@ Route::resource("/cart", "CartController", [
 ]);
 
 Route::resource("/checkout", "CheckoutController", ["only" => ["index", "store", "show"]]);
+
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", "auth.admin"])->group(function () {
+    Route::get("/", "DashboardController@index")->name("dashboard");
+});

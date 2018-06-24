@@ -1,0 +1,35 @@
+//colors
+$color_mountain_mist_approx: #999999;
+$color_gallery_approx: #eeeeee;
+
+.sidebar-menu ul.nav {
+  a {
+    margin-top: -40px;
+  }
+  &.category-menu {
+    margin-bottom: 20px;
+    li div{
+      text-transform: uppercase;
+      font-weight: bold;
+      background-color: $color_gallery_approx;
+      border: 1px solid gray;
+      margin-top: 5px;
+      color: #000;
+      padding: 10px 15px;
+    }
+  }
+  ul {
+    list-style: none;
+    padding-left: 30px;
+    li div{
+      display: block;
+      position: relative;
+      font-weight: normal;
+      text-transform: none !important;
+      padding: 10px 15px;
+      padding-left: 30px;
+      font-size: 12px;
+      color: #000;
+    }
+  }
+}

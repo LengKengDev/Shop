@@ -70,3 +70,27 @@ Breadcrumbs::for('checkout.index', function ($trail) {
     $trail->parent('home');
     $trail->push(__("Checkout"), route('checkout.index'));
 });
+
+
+// Admin
+Breadcrumbs::for('admin.dashboard', function ($trail) {
+    $trail->push(__("Dashboard"), route('admin.dashboard'));
+});
+
+// categories
+Breadcrumbs::for('admin.categories', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Categories"), route('admin.categories.index'));
+});
+
+// Admin
+Breadcrumbs::for('admin.categories.show', function ($trail, $category) {
+    $trail->parent('admin.categories');
+    $trail->push(__(":name", ['name' => $category->name]));
+});
+
+// Admin
+Breadcrumbs::for('admin.categories.edit', function ($trail, $category) {
+    $trail->parent('admin.categories.show', $category);
+    $trail->push(__("Edit"), route('admin.categories.edit', $category));
+});

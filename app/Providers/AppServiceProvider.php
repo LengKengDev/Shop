@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Category;
 use App\Item;
+use App\Observers\CategoryObserver;
 use App\Observers\ItemObserver;
 use App\Observers\UserObserver;
 use App\User;
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
         Item::observe(ItemObserver::class);
+        Category::observe(CategoryObserver::class);
 
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 2); ?>";

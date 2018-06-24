@@ -50,7 +50,8 @@ class Category extends Model
      */
     public function childs()
     {
-        return $this->hasMany(Category::class, "parent_id");
+        return $this->hasMany(Category::class, "parent_id")
+            ->orderBy("position", "asc");
     }
 
     /**
@@ -69,7 +70,8 @@ class Category extends Model
      */
     public function scopeMainCategories($query)
     {
-        return $query->with(["parent", "childs"])->whereNull('parent_id');
+        return $query->with(["parent", "childs"])->whereNull('parent_id')
+            ->orderBy("position", "asc");
     }
 
     /**

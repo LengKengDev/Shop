@@ -85,251 +85,38 @@
 
         <div class="container">
             <div class="product-slider">
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Fur coat with very but
-                                    very very long name</a></h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
+                @foreach(App\Product::hotProducts()->get() as $item)
+                    <div class="item">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="{{route("products.show", $item)}}">
+                                            <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="{{route("products.show", $item)}}">
+                                            <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                                 alt="" class="img-responsive">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">White Blouse Armani</a>
-                            </h3>
-                            <p class="price">
-                                <del>$280</del>
-                                $143.00
-                            </p>
-                        </div>
-                        <!-- /.text -->
-
-                        <div class="ribbon sale">
-                            <div class="theribbon">SALE</div>
-                            <div class="ribbon-background"></div>
-                        </div>
-                        <!-- /.ribbon -->
-
-                        <div class="ribbon new">
-                            <div class="theribbon">NEW</div>
-                            <div class="ribbon-background"></div>
-                        </div>
-                        <!-- /.ribbon -->
-
-                        <div class="ribbon gift">
-                            <div class="theribbon">GIFT</div>
-                            <div class="ribbon-background"></div>
-                        </div>
-                        <!-- /.ribbon -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
+                            <a href="{{route("products.show", $item)}}" class="invisible">
+                                <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                     alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a href="{{route("products.show", $item)}}">{{$item->name}}</a></h3>
+                                <p class="price">$1{{$item->price}}</p>
                             </div>
+                            <!-- /.text -->
                         </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Black Blouse Versace</a>
-                            </h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
+                        <!-- /.product -->
                     </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Black Blouse Versace</a>
-                            </h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Black Blouse Versace</a>
-                            </h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Black Blouse Versace</a>
-                            </h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
-                <div class="item">
-                    <div class="product">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="front">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="detail.html">
-                                        <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                             alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="detail.html" class="invisible">
-                            <img src="http://demo.alogs.net/img/product1_2.jpg"
-                                 alt="" class="img-responsive">
-                        </a>
-                        <div class="text">
-                            <h3><a href="detail.html">Black Blouse Versace</a>
-                            </h3>
-                            <p class="price">$143.00</p>
-                        </div>
-                        <!-- /.text -->
-                    </div>
-                    <!-- /.product -->
-                </div>
-
+                @endforeach
             </div>
             <!-- /.product-slider -->
         </div>

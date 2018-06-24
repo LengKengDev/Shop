@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section("title", __("Register"))
+@section("title", __("Đăng ký"))
 
 @section("breadcrumbs")
     {{ Breadcrumbs::render('register') }}
@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-8 col-sm-offset-2">
             <div class="box">
-                <h1 class="card-header text-center">{{ __('Register') }}</h1>
+                <h1 class="card-header text-center">{{ __('Đăng ký') }}</h1>
                 <p class="lead text-center">
                     {{__("Nếu bạn đã là thành viên? Xin mời ")}}
                     <a href="{{route('login')}}">{{__('đăng nhập')}}</a>

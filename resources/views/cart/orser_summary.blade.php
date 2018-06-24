@@ -1,7 +1,7 @@
 <div class="col-md-3">
     <div class="box" id="order-summary">
         <div class="box-header">
-            <h3>Order summary</h3>
+            <h3>{{__("Thông tin đơn hàng")}}</h3>
         </div>
         <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
 
@@ -9,7 +9,7 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <td>Order subtotal</td>
+                    <td>{{__("Tổng tiền sản phẩm")}}</td>
                     <th>${{Cart::subtotal()}}</th>
                 </tr>
                 <tr class="hidden">
@@ -17,11 +17,11 @@
                     <th>$10.00</th>
                 </tr>
                 <tr>
-                    <td>Tax</td>
+                    <td>{{__("Thuế")}}</td>
                     <th>${{Cart::tax()}}</th>
                 </tr>
                 <tr class="total">
-                    <td>Total</td>
+                    <td>{{__("Tổng tiền thanh toán")}}</td>
                     <th>${{Cart::total()}}</th>
                 </tr>
                 </tbody>

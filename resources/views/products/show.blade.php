@@ -44,7 +44,7 @@
                         <p class="text-center buttons">
                             <a href="#" class="btn btn-primary" onclick="event.preventDefault();
                                    document.getElementById('product-{{$product->id}}').submit();">
-                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}</a>
                             <a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
 
                             <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
@@ -72,13 +72,13 @@
 
             <div class="box" id="details">
                 <p>
-                <h3>Product details</h3>
+                <h3>{{__("Thông tin sản phẩm")}}</h3>
                 <hr>
 
                 <p>{{$product->description}}</p>
                 <hr>
                 <div class="social">
-                    <h4>Show it to your friends</h4>
+                    <h4>{{__("Chia sẻ sản phẩm tới bạn bè")}}</h4>
                     <p>
                         <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
@@ -91,7 +91,7 @@
             <div class="row same-height-row">
                 <div class="col-md-3 col-sm-6">
                     <div class="box same-height">
-                        <h3>You may also like these products</h3>
+                        <h3>{{__("Những sản phẩm bạn có thể thích")}}</h3>
                     </div>
                 </div>
                 @if ($product->categories->first->parent == null)
@@ -159,7 +159,7 @@
             <div class="row same-height-row">
                 <div class="col-md-3 col-sm-6">
                     <div class="box same-height">
-                        <h3>Products viewed recently</h3>
+                        <h3>{{__("Những sản phẩm đã xem")}}</h3>
                     </div>
                 </div>
 

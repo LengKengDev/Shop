@@ -27,7 +27,7 @@
                     <p class="price">@money($product->price)</p>
                     <p class="buttons">
                         <a href="{{route("products.show", ['product' => $product])}}"
-                           class="btn btn-default btn-block"><i class="fa fa-eye fa-fw"></i>View detail</a>
+                           class="btn btn-default btn-block"><i class="fa fa-eye fa-fw"></i>{{__("Xem chi tiết sản phẩm")}}</a>
                     </p>
                 </div>
                 <!-- /.text -->

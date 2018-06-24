@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@section("title", __("Categories"))
+@section("title", __("Danh mục sản phẩm"))
 
 @section("breadcrumbs")
     {{ Breadcrumbs::render('categories') }}
@@ -15,7 +15,7 @@
 
         <div class="col-md-9">
             <div class="box">
-                <h1>Categories</h1>
+                <h1>{{__("Danh mục sản phẩm")}}</h1>
                 <p>In our shop offer wide selection of the best products we have found and carefully selected worldwide.</p>
             </div>
 

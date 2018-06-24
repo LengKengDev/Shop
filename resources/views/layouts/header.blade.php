@@ -7,9 +7,9 @@
         <div class="col-md-6" data-animate="fadeInDown">
             <ul class="menu">
                 @if(!Auth::check())
-                    <li><a href="{{route('login')}}">{{__("Login")}}</a>
+                    <li><a href="{{route('login')}}">{{__("Đăng nhập")}}</a>
                     </li>
-                    <li><a href="{{route('register')}}">{{__('Register')}}</a>
+                    <li><a href="{{route('register')}}">{{__('Đăng ký')}}</a>
                     </li>
                 @else
                     <li><a href="#">{{__("Xin chào")}}, {{Auth::user()->name}}</a></li>
@@ -22,9 +22,9 @@
                         </form>
                     </li>
                 @endif
-                <li><a href="contact.html">Contact</a>
+                <li><a href="contact.html">{{__("Liên hệ")}}</a>
                 </li>
-                <li><a href="#">Recently viewed</a>
+                <li><a href="#">{{__("Sản phẩm vừa xem")}}</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                     <i class="fa fa-search"></i>
                 </button>
                 <a class="btn btn-default navbar-toggle" href="{{route("cart.index")}}">
-                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">{{Cart::count()}} - items in cart</span>
+                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">{{Cart::count()}} - {{__("sản phẩm trong giỏ")}}</span>
                 </a>
             </div>
         </div>
@@ -60,10 +60,10 @@
         <div class="navbar-collapse collapse" id="navigation">
 
             <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="{{route('home')}}">Home</a>
+                <li class="active"><a href="{{route('home')}}">{{__("Trang chủ")}}</a>
                 </li>
                 <li class="dropdown yamm-fw">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Categories <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{__("Danh mục sản phẩm")}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="yamm-content">
@@ -92,7 +92,7 @@
         <div class="navbar-buttons">
 
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="{{route("cart.index")}}" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">{{Cart::count()}} items in cart</span></a>
+                <a href="{{route("cart.index")}}" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">{{Cart::count()}} {{__("sản phẩm trong giỏ")}}</span></a>
             </div>
             <!--/.nav-collapse -->
 

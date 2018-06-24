@@ -61,6 +61,11 @@ class Product extends Model implements HasMedia, Buyable
         });
     }
 
+    public function scopeHotProducts($query)
+    {
+        return $query->orderBy("id", 'desc')->limit(10);
+    }
+
     /**
      * Return the sluggable configuration array for this model.
      *

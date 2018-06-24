@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@section("title", __("My Cart"))
+@section("title", __("Giỏ hàng của tôi"))
 
 @section("breadcrumbs")
     {{ Breadcrumbs::render('cart.index') }}
@@ -14,17 +14,17 @@
 
                 <form method="get" action="{{route("checkout.index")}}">
 
-                    <h1>Shopping cart</h1>
-                    <p class="text-muted">You currently have {{Cart::count()}} item(s) in your cart.</p>
+                    <h1>{{__("Giỏ hàng của bạn")}}</h1>
+                    <p class="text-muted">{{__("Bạn đang có :num sản phẩm trong giỏ hàng", ['num' => Cart::count()])}} .</p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Product</th>
-                                    <th>Quantity</th>
-                                    <th>Unit price</th>
-                                    <th>Discount</th>
-                                    <th colspan="2">Total</th>
+                                    <th colspan="2">{{__("Sản phẩm")}}</th>
+                                    <th>{{__("Số lượng")}}</th>
+                                    <th>{{__("Đơn giá")}}</th>
+                                    <th>{{__("Giảm trừ")}}</th>
+                                    <th colspan="2">{{__("Thành tiền")}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,7 +52,7 @@
                                     <td>$@money($item->subtotal)</td>
                                     <td>
                                         <a href="#" onclick="event.preventDefault();
-                                   document.getElementById('{{$item->rowId}}').submit();"><i class="fa fa-trash-o"></i>
+                                   document.getElementById('{{$item->rowId}}').submit();"><i class="fa fa-trash-o text-danger"></i>
                                         </a>
                                         <div>
                                             <form action=""></form>
@@ -68,7 +68,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th colspan="5">Total</th>
+                                <th colspan="5">{{__("Tổng tiền sản phẩm")}}</th>
                                 <th colspan="2">${{Cart::subtotal()}}</th>
                             </tr>
                             </tfoot>
@@ -79,12 +79,12 @@
 
                     <div class="box-footer">
                         <div class="pull-left">
-                            <a href="{{route("categories.index")}}" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                            <a href="{{route("categories.index")}}" class="btn btn-default"><i class="fa fa-chevron-left"></i> {{__("Tiếp tục mua hàng")}}</a>
                         </div>
                         <div class="pull-right">
                             @if(Cart::count() > 0)
                                 <button type="submit" class="btn btn-primary">
-                                    Proceed to checkout <i class="fa fa-chevron-right"></i>
+                                    {{__("Kiểm tra đơn hàng")}} <i class="fa fa-chevron-right"></i>
                                 </button>
                             @endif
 

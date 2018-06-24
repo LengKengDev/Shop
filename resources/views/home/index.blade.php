@@ -39,9 +39,8 @@
                         <div class="icon"><i class="fa fa-heart"></i>
                         </div>
 
-                        <h3><a href="#">We love our customers</a></h3>
-                        <p>We are known to provide best possible service
-                            ever</p>
+                        <h3><a href="#">{{__("Yêu quý khách hàng")}}</a></h3>
+                        <p>{{__("Chúng tôi được biết đến như là nhà cung cấp sản phẩm tốt nhất")}}.</p>
                     </div>
                 </div>
 
@@ -50,10 +49,8 @@
                         <div class="icon"><i class="fa fa-tags"></i>
                         </div>
 
-                        <h3><a href="#">Best prices</a></h3>
-                        <p>You can check that the height of the boxes adjust
-                            when longer text like this one is used in one of
-                            them.</p>
+                        <h3><a href="#">{{__("Giá tốt nhất")}}</a></h3>
+                        <p>{{__("Giá cả cạnh tranh luôn là lợi thế của chúng tôi")}}.</p>
                     </div>
                 </div>
 
@@ -62,8 +59,8 @@
                         <div class="icon"><i class="fa fa-thumbs-up"></i>
                         </div>
 
-                        <h3><a href="#">100% satisfaction guaranteed</a></h3>
-                        <p>Free returns on everything for 3 months.</p>
+                        <h3><a href="#">100% {{__("Hài lòng")}}</a></h3>
+                        <p>{{__("Miễn phí đổi trả nếu có bất kỳ vấn đề gì của sản phẩm")}}.</p>
                     </div>
                 </div>
             </div>
@@ -78,7 +75,7 @@
         <div class="box">
             <div class="container">
                 <div class="col-md-12">
-                    <h2>Hot this week</h2>
+                    <h2>{{__("Sản phẩm HOT")}}</h2>
                 </div>
             </div>
         </div>

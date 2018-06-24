@@ -2,37 +2,37 @@
 
 // Home
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push(__("Home"), route('home'));
+    $trail->push(__("Trang chủ"), route('home'));
 });
 
 // login
 Breadcrumbs::for('login', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Login"), route('login'));
+    $trail->push(__("Đăng nhập"), route('login'));
 });
 
 // register
 Breadcrumbs::for('register', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Register"), route('register'));
+    $trail->push(__("Đăng ký"), route('register'));
 });
 
 // Forget password
 Breadcrumbs::for('password.request', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Forget password"), route('password.request'));
+    $trail->push(__("Quên mật khẩu"), route('password.request'));
 });
 
 // Reset password
 Breadcrumbs::for('password.reset', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Reset password"), route('password.reset'));
+    $trail->push(__("Đặt lại mật khẩu"), route('password.reset'));
 });
 
 // Categories
 Breadcrumbs::for('categories', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Categories"), route('categories.index'));
+    $trail->push(__("Danh mục sản phẩm"), route('categories.index'));
 });
 
 // Categories
@@ -62,13 +62,13 @@ Breadcrumbs::for('products.show', function ($trail, $product) {
 // Cart
 Breadcrumbs::for('cart.index', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Cart"), route('cart.index'));
+    $trail->push(__("Giỏ hàng của tôi"), route('cart.index'));
 });
 
 // Checkout
 Breadcrumbs::for('checkout.index', function ($trail) {
     $trail->parent('home');
-    $trail->push(__("Checkout"), route('checkout.index'));
+    $trail->push(__("Kiểm tra giỏ hàng"), route('checkout.index'));
 });
 
 

@@ -29,4 +29,5 @@ Route::resource("/checkout", "CheckoutController", ["only" => ["index", "store",
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", "auth.admin"])->group(function () {
     Route::get("/", "DashboardController@index")->name("dashboard");
+    Route::resource("categories", "CategoriesController", ['only' => ["index", "edit", "update"]]);
 });

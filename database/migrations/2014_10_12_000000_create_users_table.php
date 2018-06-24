@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('company')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->rememberToken();
             $table->softDeletes();

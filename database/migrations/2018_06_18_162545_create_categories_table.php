@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 255);
             $table->string('slug', 255);
             $table->text('description')->nullable();
+            $table->integer('position')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

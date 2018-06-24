@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>Dashboard</h1>
+    {{ Breadcrumbs::render('admin.dashboard') }}
 @stop
 
 @section('content')

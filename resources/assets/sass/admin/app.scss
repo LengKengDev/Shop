@@ -1,1 +1,6 @@
+@import "~toastr/toastr";
 @import "categories";
+
+.toast-top-right {
+  top: 130px!important;
+}

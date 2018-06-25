@@ -80,7 +80,7 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
 // categories
 Breadcrumbs::for('admin.categories', function ($trail) {
     $trail->parent('admin.dashboard');
-    $trail->push(__("Categories"), route('admin.categories.index'));
+    $trail->push(__("Catalog Management"), route('admin.categories.index'));
 });
 
 // Category show
@@ -99,4 +99,16 @@ Breadcrumbs::for('admin.categories.create', function ($trail) {
 Breadcrumbs::for('admin.categories.edit', function ($trail, $category) {
     $trail->parent('admin.categories.show', $category);
     $trail->push(__("Edit"), route('admin.categories.edit', $category));
+});
+
+// Products
+Breadcrumbs::for('admin.products', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Product Management"), route('admin.products.index'));
+});
+
+// Products.create
+Breadcrumbs::for('admin.products.create', function ($trail) {
+    $trail->parent('admin.products');
+    $trail->push(__("Add new product"), route('admin.products.create'));
 });

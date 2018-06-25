@@ -17,6 +17,14 @@
     },
     "dependencies": {
         "bootstrap": "3.3.7",
+        "datatables": "^1.10.18",
+        "datatables.net": "^1.10.19",
+        "datatables.net-bs": "^1.10.19",
+        "datatables.net-dt": "^1.10.19",
+        "datatables.net-responsive-bs": "^2.2.3",
+        "datatables.net-responsive-dt": "^2.2.3",
+        "datatables.net-select": "^1.2.7",
+        "datatables.net-select-bs": "^1.2.7",
         "font-awesome": "^4.7.0",
         "jquery": "1.12",
         "toastr": "^2.1.4"

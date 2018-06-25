@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Observers\CategoryObserver;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
@@ -27,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.categories.create");
     }
 
     /**
@@ -38,7 +39,19 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'parent_id' => 'nullable|exists:categories,id'
+        ]);
+
+        if ($validator->fails()) {
+            toastr()->error(__("Invalid data input"));
+            return back()->withErrors($validator)->withInput();
+        }
+
+        Category::create($request->only(["name", "description", "position", "parent_id"]));
+        toastr()->success(__("Category has been created!"));
+        return redirect()->route("admin.categories.index");
     }
 
     /**
@@ -74,16 +87,16 @@ class CategoriesController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'submit' => Rule::in(["update-info", "update-position"]),
+            'update' => Rule::in(["update-info", "update-position"]),
         ]);
 
         if ($validator->fails()) {
             toastr()->error(__("Invalid action !"));
             return back();
         }
-        $action = $request->input('submit', 'update-info');
+        $update = $request->input('update', 'update-info');
 
-        switch ($action) {
+        switch ($update) {
             case 'update-info':
                 $validator = Validator::make($request->all(), [
                     'name' => 'required',
@@ -94,13 +107,63 @@ class CategoriesController extends Controller
                     toastr()->error(__("Invalid data input !"));
                     return back()->withErrors($validator);
                 } else {
-                    $category->update($request->only(['name', 'description', 'parent_id']));
+                    $category->update($request->only(['name', 'description', 'parent_id', 'position']));
                     toastr()->success(__("Category has been updated!"));
                     return redirect()->route("admin.categories.edit", $category);
                 }
                 break;
             case 'update-position':
-                dd($request->all());
+                $action = $request->input('action', "");
+                switch ($action) {
+                    case "up":
+                        if ($category->position != 1) {
+                            $swap = null;
+
+                            if($category->parent == null) {
+                                $swap = Category::mainCategories2()->where('position', '<', $category->position)->first();
+                            } else {
+                                $swap = $category->parent->childs2()->where('position', '<', $category->position)->first();
+                            }
+
+                            if ($swap != null) {
+                                $tmp = $category->position;
+                                $category->position = $swap->position;
+                                $swap->position = $tmp;
+                                $swap->save();
+                                $category->save();
+                                toastr()->success(__("Category position has been updated!"));
+                            } else {
+                                toastr()->success(__("Category position update fails!"));
+                            }
+                        }
+                        break;
+                    case "down":
+                        $position = $category->parent == null ? Category::mainCategories()->count() : $category->parent->childs->count();
+                        if ($category->position != $position) {
+                            $swap = null;
+
+                            if($category->parent == null) {
+                                $swap = Category::mainCategories()->where('position', '>', $category->position)->orderBy("position", "desc")->first();
+                            } else {
+                                $swap = $category->parent->childs()->where('position', '>', $category->position)->orderBy("position", "desc")->first();
+                            }
+                            if ($swap != null) {
+                                $tmp = $category->position;
+                                $category->position = $swap->position;
+                                $swap->position = $tmp;
+                                $swap->save();
+                                $category->save();
+                                toastr()->success(__("Category position has been updated!"));
+                            } else {
+                                toastr()->success(__("Category position update fails!"));
+                            }
+                        }
+                        break;
+
+                    default:
+                        toastr()->error(__("Invalid action"));
+                }
+                return back();
                 break;
             default:
                 toastr()->error(__("Invalid data input !"));
@@ -116,6 +179,8 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        toastr()->success(__("Category has been deleted!"));
+        return back();
     }
 }

@@ -17,7 +17,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'parent_id', 'slug', 'description'
+        'name', 'parent_id', 'slug', 'description', 'position'
     ];
 
     /**
@@ -55,6 +55,16 @@ class Category extends Model
     }
 
     /**
+     * return subcategory
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function childs2()
+    {
+        return $this->hasMany(Category::class, "parent_id")
+            ->orderBy("position", "desc");
+    }
+
+    /**
      * get products
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -72,6 +82,17 @@ class Category extends Model
     {
         return $query->with(["parent", "childs"])->whereNull('parent_id')
             ->orderBy("position", "asc");
+    }
+
+    /**
+     * get main category(category level 1)
+     * @param $query
+     * @return mixed
+     */
+    public function scopeMainCategories2($query)
+    {
+        return $query->with(["parent", "childs"])->whereNull('parent_id')
+            ->orderBy("position", "desc");
     }
 
     /**

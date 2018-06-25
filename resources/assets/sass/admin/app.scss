@@ -1,5 +1,11 @@
 @import "~toastr/toastr";
+// DataTables
+@import "~datatables.net-bs/css/dataTables.bootstrap";
+// DataTables
+@import "~datatables.net-responsive-bs/css/responsive.bootstrap.min";
+@import "~datatables.net-select-bs/css/select.bootstrap.min";
 @import "categories";
+@import "products";
 
 .toast-top-right {
   top: 130px!important;

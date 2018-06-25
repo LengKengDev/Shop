@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => 'fixed',
+    'layout' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -115,11 +115,9 @@ return [
             'icon' => 'stack-exchange'
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Products',
+            'url'         => 'admin/products',
+            'icon'        => 'product-hunt'
         ],
         'SITE SETTINGS',
         [
@@ -194,7 +192,7 @@ return [
     */
 
     'plugins' => [
-        'datatables' => false,
+        'datatables' => true,
         'select2'    => false,
         'chartjs'    => false,
     ],

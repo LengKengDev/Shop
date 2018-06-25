@@ -30,4 +30,9 @@ Route::resource("/checkout", "CheckoutController", ["only" => ["index", "store",
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", "auth.admin"])->group(function () {
     Route::get("/", "DashboardController@index")->name("dashboard");
     Route::resource("categories", "CategoriesController", ['only' => ["index", "create", "edit", "update", "store", "destroy"]]);
+    Route::resource("products", "ProductsController");
+
+    Route::namespace('Api')->prefix('api')->name('api.')->middleware(["auth", "auth.admin"])->group(function () {
+        Route::resource("products", "ProductsController", ["only" => "index"]);
+    });
 });

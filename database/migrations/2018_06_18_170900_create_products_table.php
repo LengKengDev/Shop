@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('summary')->nullable();
             $table->text('description')->nullable();
             $table->integer('qty')->default(0);
+            $table->integer('qty_per_unit')->default(1);
             $table->enum('status', ['inStock', 'outOfStock', 'deactivate', 'active'])->default('deactivate');
             $table->softDeletes();
             $table->timestamps();

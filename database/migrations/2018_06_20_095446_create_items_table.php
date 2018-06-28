@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('option')->nullable();
             $table->integer('qty')->unsigned();
             $table->integer('price')->unsigned();
+            $table->integer('subtotal')->unsigned()->nullable();
             $table->timestamps();
         });
     }

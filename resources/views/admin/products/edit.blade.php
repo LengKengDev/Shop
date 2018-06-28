@@ -102,10 +102,10 @@
                                         <div class="form-group">
                                             <label>Quantity</label>
                                             <input class="form-control"  placeholder="quantity" type="number" value="{{ $product->qty }}"
-                                                   name="quantity" required min="0">
-                                            @if ($errors->has('quantity'))
+                                                   name="qty" required min="0">
+                                            @if ($errors->has('qty'))
                                                 <span class="invalid-feedback text-danger" role="alert">
-                                                    <strong>{{ $errors->first('quantity') }}</strong>
+                                                    <strong>{{ $errors->first('qty') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -122,7 +122,7 @@
                                         <div class="form-group">
                                             <label>Minimum unit</label>
                                             <input class="form-control"  placeholder="Minimum unit" type="number" value="{{ $product->minimum_unit }}"
-                                                   name="qty_per_unit" required min="1">
+                                                   name="minimum_unit" required min="1">
                                             @if ($errors->has('minimum_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">
                                                     <strong>{{ $errors->first('minimum_unit') }}</strong>

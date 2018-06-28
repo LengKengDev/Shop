@@ -35,13 +35,21 @@
                                             <img src="{{$item->model->getFirstMedia("images")->getFullUrl("thumb")}}" alt="{{$item->model->name}}" class="cart-img-thumb img-responsive img-thumbnail">
                                         </a>
                                     </td>
-                                    <td><a href="{{route("products.show", $item->model)}}">{{$item->model->name}}</a>
+                                    <td>
+                                        <?php
+                                        $option = "";
+                                        foreach ($item->options as $opt) {
+                                            $option.=" / ".$opt['name'].": ".$opt['value']." ";
+                                        }
+                                        ?>
+                                        <a href="{{route("products.show", $item->model)}}">{{$item->model->name}} {{$option}}</a>
                                     </td>
                                     <td>
                                         <form action=""></form>
                                         <form action="{{route("cart.update", $item->model)}}" method="POST" id="update-{{$item->rowId}}">
-                                            <input type="number" value="{{$item->qty}}" class="form-control qty" name="qty" data="update-{{$item->rowId}}">
-                                            <input type="hidden" name="rowId" value="{{$item->rowId}}">
+                                            <input type="number" value="{{$item->qty}}" class="form-control qty" name="qty" data="update-{{$item->rowId}}"
+                                                   style="width: 75px" max="{{$item->model->qty}}" step="{{$item->model->qty_per_unit}}" min="{{$item->model->qty_per_unit*$item->model->minimum_unit}}">
+                                            <input type="hidden" name="rowId" value="{{$item->rowId}}" >
                                             @method("PATCH")
                                             {{csrf_field()}}
                                         </form>

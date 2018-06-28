@@ -28,6 +28,7 @@ class Product extends Model implements HasMedia, Buyable
      */
     protected $fillable = [
         'name', 'slug', 'price', 'sale_price', 'summary', 'description', 'qty', 'status',
+        'qty_per_unit', 'minimum_unit'
     ];
 
     /**

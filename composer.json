@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/laravel-permission": "^2.12",
+        "unisharp/laravel-filemanager": "~1.8",
         "yajra/laravel-datatables": "^1.0",
         "yoeunes/toastr": "^1.0"
     },

@@ -107,8 +107,20 @@ Breadcrumbs::for('admin.products', function ($trail) {
     $trail->push(__("Product Management"), route('admin.products.index'));
 });
 
+// Products
+Breadcrumbs::for('admin.products.show', function ($trail, $product) {
+    $trail->parent('admin.products');
+    $trail->push(__(":name", ['name' => $product->name]));
+});
+
 // Products.create
 Breadcrumbs::for('admin.products.create', function ($trail) {
     $trail->parent('admin.products');
     $trail->push(__("Add new product"), route('admin.products.create'));
+});
+
+// Products
+Breadcrumbs::for('admin.products.edit', function ($trail, $product) {
+    $trail->parent('admin.products.show', $product);
+    $trail->push(__("Edit"));
 });

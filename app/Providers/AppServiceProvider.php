@@ -26,10 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Item::observe(ItemObserver::class);
         Category::observe(CategoryObserver::class);
         Option::observe(OptionObserver::class);
-
-        Blade::directive('money', function ($amount) {
-            return "<?php echo number_format($amount, 0); ?>";
-        });
     }
 
     /**

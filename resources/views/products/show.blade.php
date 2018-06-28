@@ -39,7 +39,7 @@
                         <h1 class="text-center">{{$product->name}}</h1>
                         <p class="goToDescription"><p href="#details" class="scroll-to">{{$product->summary}}</p>
                         </p>
-                        <p class="price">@money($product->price) VND</p>
+                        <p class="price">@money($product->price, "VND")</p>
 
                         <p class="text-center buttons">
                             <a href="#" class="btn btn-primary" onclick="event.preventDefault();
@@ -117,7 +117,7 @@
                                 </a>
                                 <div class="text">
                                     <h3>{{$item->name}}</h3>
-                                    <p class="price">@money($item->price)</p>
+                                    <p class="price">@money($item->price, 'VND')</p>
                                 </div>
                             </div>
                             <!-- /.product -->

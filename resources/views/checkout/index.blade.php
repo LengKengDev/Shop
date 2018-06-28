@@ -15,7 +15,7 @@
                 <form method="POST" action="{{route("checkout.store")}}">
                     {{csrf_field()}}
                     <h2><i class="fa fa-eye fa-fw"></i>{{__("Thông tin đơn hàng")}}</h2>
-
+                    <hr>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -40,24 +40,30 @@
                                     <td>
                                         {{$item->qty}}
                                     </td>
-                                    <td>$@money($item->price)</td>
-                                    <td>$0.00</td>
-                                    <td>$@money($item->subtotal)</td>
+                                    <td>@money($item->price, "VND")</td>
+                                    <td>@money(0, "VND")</td>
+                                    <td>@money($item->subtotal, "VND")</td>
                                 </tr>
                             @endforeach
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th colspan="5">{{__("Tổng tiền thanh toán")}}</th>
-                                <th colspan="2">${{Cart::subtotal()}}</th>
+                                <th colspan="5">{{__("Tổng tiền  = Tiền sản phẩm + Phí ship = :a + :b = ", ["a" =>money(Cart::total(), "VND"), "b" => money(config("cart.shipping_fee"), "VND")])}}</th>
+                                <th colspan="2">@money(Cart::total() + config("cart.shipping_fee"), "VND")</th>
                             </tr>
                             </tfoot>
                         </table>
 
                     </div>
-
+                    <h2><i class="fa fa-ship fa-fw"></i>{{__("Phương thức giao hàng")}}</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Mặc định là phí 20000k, nếu cần giao hàng = đường thuỷ vui lòng liên hệ 19001000 để biết thêm chi tiết và số tiền.
+                        </div>
+                    </div>
                     <h2><i class="fa fa-shopping-cart fa-fw"></i>{{__("Thông tin người mua")}}</h2>
-
+                    <hr>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">

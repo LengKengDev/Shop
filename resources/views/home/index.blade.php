@@ -107,7 +107,7 @@
                             </a>
                             <div class="text">
                                 <h3><a href="{{route("products.show", $item)}}">{{$item->name}}</a></h3>
-                                <p class="price">$1{{$item->price}}</p>
+                                <p class="price">@money($item->price, 'VND')</p>
                             </div>
                             <!-- /.text -->
                         </div>

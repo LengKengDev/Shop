@@ -42,6 +42,7 @@ class CartController extends Controller
             toastr()->error(__("Product doesn't exists!"));
             return back();
         }
+
         if($product->qty > 0) {
             Cart::add($product, 1);
             toastr()->success(__("Item was added to your cart!"));

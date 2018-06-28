@@ -68,10 +68,10 @@ class CheckoutController extends Controller
             "email" => $request->input("email", $request->user()->email),
             "address" => $request->input("address", $request->user()->address),
             "note" => $request->input("note", ""),
-            "shipping" => 0,
+            "shipping" => config("cart.shipping_fee"),
             "tax" => Cart::tax(),
             "subtotal" => Cart::subtotal(),
-            "total" => Cart::total()
+            "total" => Cart::total() + config("cart.shipping_fee")
         ]);
 
         foreach (Cart::content() as $item) {

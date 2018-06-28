@@ -45,11 +45,11 @@
                                             @method("PATCH")
                                             {{csrf_field()}}
                                         </form>
-
                                     </td>
-                                    <td>$@money($item->price)</td>
-                                    <td>$0.00</td>
-                                    <td>$@money($item->subtotal)</td>
+
+                                    <td>@money($item->price, 'VND')</td>
+                                    <td>@money(0, 'VND')</td>
+                                    <td>@money($item->subtotal, 'VND')</td>
                                     <td>
                                         <a href="#" onclick="event.preventDefault();
                                    document.getElementById('{{$item->rowId}}').submit();"><i class="fa fa-trash-o text-danger"></i>
@@ -69,7 +69,7 @@
                             <tfoot>
                             <tr>
                                 <th colspan="5">{{__("Tổng tiền sản phẩm")}}</th>
-                                <th colspan="2">${{Cart::subtotal()}}</th>
+                                <th colspan="3">@money(Cart::subtotal(), 'VND')</th>
                             </tr>
                             </tfoot>
                         </table>

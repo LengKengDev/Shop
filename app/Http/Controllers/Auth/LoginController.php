@@ -51,4 +51,9 @@ class LoginController extends Controller
             return redirect()->route('admin.dashboard');
         }
     }
+
+    protected function credentials(Request $request)
+    {
+        return array_merge($request->only($this->username(), 'password'), ['active' => true]);
+    }
 }

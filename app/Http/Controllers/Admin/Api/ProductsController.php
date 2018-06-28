@@ -21,7 +21,7 @@ class ProductsController extends Controller
                 return $product->updated_at->diffForHumans();
             })
             ->editColumn('price', function ($product) {
-                return "$ ".number_format($product->price, 2)."";
+                return money($product->price, 'VND');
             })
             ->editColumn('name', function ($product) {
                 return "<img src='{$product->getFirstMedia("images")->getFullUrl("thumb")}' class='img-product-thumb' height='50px'/>

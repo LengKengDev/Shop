@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('sku')->nullable();
             $table->string('name');
             $table->string('slug');
             $table->integer('price')->default(0);
@@ -24,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('qty')->default(0);
             $table->integer('qty_per_unit')->default(1);
             $table->integer('minimum_unit')->default(1);
-            $table->enum('status', ['inStock', 'outOfStock', 'deactivate', 'active'])->default('deactivate');
+            $table->enum('status', ['inStock', 'outOfStock', 'contact', 'stop'])->default('contact');
             $table->softDeletes();
             $table->timestamps();
         });

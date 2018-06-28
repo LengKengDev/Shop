@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col-sm-7">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-8">
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input class="form-control"  placeholder="Name" type="text" value="{{ $product->name }}"
@@ -40,6 +40,18 @@
                                             @if ($errors->has('name'))
                                                 <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>SKU</label>
+                                            <input class="form-control"  placeholder="SKU" type="text" value="{{ $product->sku }}"
+                                                   name="sku">
+                                            @if ($errors->has('sku'))
+                                                <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $errors->first('sku') }}</strong>
                                         </span>
                                             @endif
                                         </div>
@@ -54,8 +66,8 @@
                                                 <option value="">--Choose--</option>
                                                 <option value="inStock" {{$product->status == 'inStock' ? 'selected' : ''}}>In Stock</option>
                                                 <option value="outOfStock" {{$product->status == 'outOfStock' ? 'selected' : ''}}>Out of stock</option>
-                                                <option value="active" {{$product->status == 'active' ? 'selected' : ''}}>Active</option>
-                                                <option value="deactivate" {{$product->status == 'deactivate' ? 'selected' : ''}}>Deactivate</option>
+                                                <option value="contact" {{$product->status == 'contact' ? 'selected' : ''}}>Contact</option>
+                                                <option value="stop" {{$product->status == 'stop' ? 'selected' : ''}}>Stop</option>
                                             </select>
                                             @if ($errors->has('status'))
                                                 <span class="invalid-feedback text-danger" role="alert">

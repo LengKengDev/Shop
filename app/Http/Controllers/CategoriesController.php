@@ -13,10 +13,13 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::orderBy("name")->paginate(9);
-        return view("categories.index", compact(['products']));
+        $orderBy = $request->input('orderBy', 'id');
+        $orderType = $request->input('orderType', 'desc');
+        $total = Product::count();
+        $products = Product::orderBy($orderBy, $orderType)->paginate(12);
+        return view("categories.index", compact(['products', 'total', 'orderBy', 'orderType']));
     }
 
     /**
@@ -25,15 +28,20 @@ class CategoriesController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Request $request, Category $category)
     {
+        $orderBy = $request->input('orderBy', 'id');
+        $orderType = $request->input('orderType', 'desc');
+        $total = 0;
         $products = null;
         if ($category->parent == null) {
-            $products = Product::subCategoriesProducts($category)->paginate(9);
+            $total = Product::subCategoriesProducts($category)->count();
+            $products = Product::subCategoriesProducts($category)->orderBy($orderBy, $orderType)->paginate(12);
         }
         else {
-            $products = $category->products()->paginate(9);
+            $total = $category->products()->count();
+            $products = $category->products()->orderBy($orderBy, $orderType)->paginate(12);
         }
-        return view("categories.show", compact(["category", "products"]));
+        return view("categories.show", compact(["category", "products", "total", 'orderBy', 'orderType']));
     }
 }

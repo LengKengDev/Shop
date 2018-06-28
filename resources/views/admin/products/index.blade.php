@@ -27,6 +27,7 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>SKU</th>
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Qty</th>
@@ -55,6 +56,7 @@
                 ajax: '{!! route('admin.api.products.index') !!}',
                 columns: [
                     { data: 'id', name: 'id', 'width': '50px' },
+                    { data: 'sku', name: 'sku' },
                     { data: 'name', name: 'name' },
                     { data: 'price', name: 'price', width: '100px' },
                     { data: 'qty', name: 'qty', width: '50px' },

@@ -12,7 +12,7 @@
                     <li><a href="{{route('register')}}">{{__('Đăng ký')}}</a>
                     </li>
                 @else
-                    <li><a href="#">{{__("Xin chào")}}, {{Auth::user()->name}}</a></li>
+                    <li><a href="{{route('account.user')}}">{{__("Xin chào")}}, {{Auth::user()->name}}</a></li>
                     <li><a href="#" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                             {{__("Đăng xuất")}}
@@ -107,9 +107,9 @@
 
         <div class="collapse clearfix" id="search">
 
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" role="search" action="{{route("search.index")}}">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" name="query">
                     <span class="input-group-btn">
 
 			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>

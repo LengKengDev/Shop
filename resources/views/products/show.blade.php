@@ -39,21 +39,30 @@
                         <h1 class="text-center">{{$product->name}}</h1>
                         <p class="goToDescription"><p href="#details" class="scroll-to">{{$product->summary}}</p>
                         </p>
-                        <p class="price">@money($product->price, "VND")</p>
+                        <div class="text-center">
+                            @if(in_array($product->status, ['inStock', 'outOfStock']))
+                                <p class="price">
+                                    @money($product->real_price, "VND")
+                                    @if($product->hasSale())
+                                        <strike>@money($product->price, "VND")</strike>
+                                    @endif
+                                </p>
+                                <p class="text-center buttons">
+                                    <a href="#" class="btn btn-primary" onclick="event.preventDefault();
+                                            document.getElementById('product-{{$product->id}}').submit();">
+                                        <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}</a>
 
-                        <p class="text-center buttons">
-                            <a href="#" class="btn btn-primary" onclick="event.preventDefault();
-                                   document.getElementById('product-{{$product->id}}').submit();">
-                                <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}</a>
-                            <a href="#" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
-
-                            <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
-                                {{csrf_field()}}
-                                <input type="hidden" value="{{$product->id}}" name="id">
-                            </form>
-                        </p>
-
-
+                                <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
+                                    {{csrf_field()}}
+                                    <input type="hidden" value="{{$product->id}}" name="id">
+                                </form>
+                                </p>
+                            @elseif(in_array($product->status, ['contact']))
+                                <a href="#" class="btn btn-">{{__("Liên hệ")}}</a>
+                            @elseif(in_array($product->status, ['deactive']))
+                                <a href="#" class="btn btn-danger">{{__("Ngừng kinh doanh")}}</a>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="row" id="thumbs">

@@ -10,7 +10,7 @@
             @foreach(App\Category::mainCategories()->get() as $category)
                 <li>
                     <a href="{{route("categories.show", ["category" => $category])}}">
-                        {{$category->name}} <span class="badge pull-right">{{$category->childs->count()}}</span>
+                        {{$category->name}}</span>
                     </a>
                     <ul>
                         @foreach($category->childs as $sub)

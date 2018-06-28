@@ -26,6 +26,7 @@ Route::resource("/cart", "CartController", [
 
 Route::resource("/checkout", "CheckoutController", ["only" => ["index", "store", "show"]]);
 
+Route::resource("/search", "SearchController", ["only" => ["index"]]);
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", "auth.admin"])->group(function () {
     Route::get("/", "DashboardController@index")->name("dashboard");
@@ -37,4 +38,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
         Route::resource("products", "ProductsController", ["only" => "index"]);
         Route::resource("orders", "OrdersController", ["only" => "index"]);
     });
+});
+
+Route::namespace('Account')->prefix('account')->name('account.')->middleware(["auth"])->group(function () {
+    Route::get("/", "UserController@index")->name("user");
+    Route::post("/", "UserController@update")->name("user.update");
+    Route::resource('orders', 'OrdersController', ['only' => ['index', 'show']]);
 });

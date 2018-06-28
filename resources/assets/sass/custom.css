@@ -1,3 +1,7 @@
 .toast-top-right {
     top: 130px!important;
 }
+
+table td {
+    vertical-align: middle!important;
+}

@@ -29,8 +29,7 @@
         <!-- /.products -->
 
             <div class="pages">
-
-                {{ $products->links() }}
+                {{ $products->appends(['orderBy' => $orderBy, 'orderType' => $orderType])->links() }}
             </div>
 
 

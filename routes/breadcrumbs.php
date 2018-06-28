@@ -142,3 +142,26 @@ Breadcrumbs::for('admin.orders.edit', function ($trail, $order) {
     $trail->parent('admin.orders.show', $order);
     $trail->push(__("Edit"));
 });
+
+// me
+Breadcrumbs::for('account', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Tài khoản"), route('account.user'));
+});
+
+// my orders
+Breadcrumbs::for('account.orders', function ($trail) {
+    $trail->parent('account');
+    $trail->push(__("Lịch sử đơn hàng"), route('account.orders.index'));
+});
+
+Breadcrumbs::for('account.orders.show', function ($trail, $order) {
+    $trail->parent('account.orders');
+    $trail->push(__("# :id", ['id' => $order->id]), route('account.orders.show', $order));
+});
+
+// me
+Breadcrumbs::for('search', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Tìm kiếm"), route('search.index'));
+});

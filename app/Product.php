@@ -6,6 +6,7 @@ use Gloudemans\Shoppingcart\CanBeBought;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -15,16 +16,11 @@ use Spatie\MediaLibrary\Models\Media;
 
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait, SoftDeletes, Sluggable, CanBeBought;
+    use HasMediaTrait, SoftDeletes, Sluggable, CanBeBought, Searchable;
     /**
      * @var array
      */
     protected $with = ['media'];
-
-    /**
-     * @var array
-     */
-    protected $attributes = ['real_price'];
 
     /**
      * @var array
@@ -46,7 +42,7 @@ class Product extends Model implements HasMedia, Buyable
      */
     protected $fillable = [
         'name', 'slug', 'price', 'sale_price', 'summary', 'description', 'qty', 'status',
-        'qty_per_unit', 'minimum_unit'
+        'qty_per_unit', 'minimum_unit', 'sku'
     ];
 
     /**
@@ -164,5 +160,27 @@ class Product extends Model implements HasMedia, Buyable
             return $this->sale_price;
         }
         return $this->price;
+    }
+
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'products_index';
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+        $array["categories"] = $this->categories;
+        return $array;
     }
 }

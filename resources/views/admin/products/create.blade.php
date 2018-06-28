@@ -101,21 +101,21 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ old('quantity', 1) }}"
-                                                   name="quantity" required min="0">
-                                            @if ($errors->has('quantity'))
+                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ old('qty', 1) }}"
+                                                   name="qty" required min="0">
+                                            @if ($errors->has('qty'))
                                                 <span class="invalid-feedback text-danger" role="alert">
-                                                    <strong>{{ $errors->first('quantity') }}</strong>
+                                                    <strong>{{ $errors->first('qty') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity per unit</label>
-                                            <input class="form-control"  placeholder="qty per unit" type="number" value="{{ old('qty_per_unit', 1) }}"
-                                                   name="qty_per_unit" required min="1">
-                                            @if ($errors->has('qty_per_unit'))
+                                            <input class="form-control"  placeholder="qty per unit" type="number" value="{{ old('minimum_unit', 1) }}"
+                                                   name="minimum_unit" required min="1">
+                                            @if ($errors->has('minimum_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">
-                                                    <strong>{{ $errors->first('qty_per_unit') }}</strong>
+                                                    <strong>{{ $errors->first('minimum_unit') }}</strong>
                                                 </span>
                                             @endif
                                         </div>

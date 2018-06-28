@@ -42,21 +42,46 @@
                         <div class="text-center">
                             @if(in_array($product->status, ['inStock', 'outOfStock']))
                                 <p class="price">
-                                    @money($product->real_price, "VND")
-                                    @if($product->hasSale())
-                                        <strike>@money($product->price, "VND")</strike>
+                                    @if(Auth::check())
+                                        @money($product->real_price, "VND")
+                                        @if($product->hasSale())
+                                            <strike>@money($product->price, "VND")</strike>
+                                        @endif
+                                    @else
+                                        {{__("Bạn muốn xem giá?")}}<a href="{{route("login")}}"><br>{{__("Hãy đăng nhập")}}</a>
                                     @endif
                                 </p>
-                                <p class="text-center buttons">
-                                    <a href="#" class="btn btn-primary" onclick="event.preventDefault();
-                                            document.getElementById('product-{{$product->id}}').submit();">
-                                        <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}</a>
 
                                 <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
                                     {{csrf_field()}}
+                                    @foreach($product->options as $option)
+                                        <hr>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-2 text-right"><label>{{$option->name}}</label></div>
+                                                <div class="col-sm-10 text-left">
+                                                    <input type="hidden" name="option[{{$option->id}}][name]" value="{{$option->name}}">
+                                                    @foreach($option->values as $value)
+                                                        <input type="radio" name="option[{{$option->id}}][value]" required value="{{$value->value}}" style="margin-left: 20px"> {{$value->value}}
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                     <input type="hidden" value="{{$product->id}}" name="id">
+                                    <hr>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="Qty" name="qty"
+                                               value="{{old('qty', $product->minimum_unit*$product->qty_per_unit)}}"
+                                               required min="{{$product->minimum_unit*$product->qty_per_unit}}" max="{{$product->qty}}" step="{{$product->qty_per_unit}}">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}
+                                            </button>
+                                        </span>
+                                    </div><!-- /input-group -->
+
                                 </form>
-                                </p>
                             @elseif(in_array($product->status, ['contact']))
                                 <a href="#" class="btn btn-">{{__("Liên hệ")}}</a>
                             @elseif(in_array($product->status, ['deactive']))

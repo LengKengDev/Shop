@@ -75,12 +75,17 @@ class CheckoutController extends Controller
         ]);
 
         foreach (Cart::content() as $item) {
+            $option = "";
+            foreach ($item->options as $opt) {
+                $option.=" / ".$opt['name'].": ".$opt['value']." ";
+            }
             Item::create([
                 "product_id" => $item->model->id,
                 "order_id" => $order->id,
-                "option" => $item->option ?? "",
+                "option" => $option,
                 "qty" => $item->qty,
-                "price" => $item->price
+                "price" => $item->price,
+                "subtotal" => $item->subtotal()
             ]);
         }
 

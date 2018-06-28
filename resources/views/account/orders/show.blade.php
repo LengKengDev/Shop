@@ -41,7 +41,7 @@
                                         <img src="{{$item->product->getFirstMedia('images')->getFullUrl('thumb')}}" alt="{{$item->product->name}}" height="50px">
                                     </a>
                                 </td>
-                                <td><a href="{{route('products.show', $item->product)}}">{{$item->product->name}}</a>
+                                <td><a href="{{route('products.show', $item->product)}}">{{$item->product->name}} {{$item->option}}</a>
                                 </td>
                                 <td>{{$item->qty}}</td>
                                 <td>@money($item->price, "VND")</td>

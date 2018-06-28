@@ -22,6 +22,24 @@ class Product extends Model implements HasMedia, Buyable
     protected $with = ['media'];
 
     /**
+     * @var array
+     */
+    protected $attributes = ['real_price'];
+
+    /**
+     * @var array
+     */
+    protected $appends = ['real_price'];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'real_price' => 'integer',
+    ];
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -126,6 +144,25 @@ class Product extends Model implements HasMedia, Buyable
      * @return float|mixed
      */
     public function getBuyablePrice($options = null){
+        return $this->real_price;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasSale()
+    {
+        return is_numeric($this->sale_price) && $this->sale_price > 0;
+    }
+
+    /**
+     * @return int|mixed
+     */
+    public function getRealPriceAttribute() : int
+    {
+        if ($this->hasSale()) {
+            return $this->sale_price;
+        }
         return $this->price;
     }
 }

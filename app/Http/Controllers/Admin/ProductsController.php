@@ -62,7 +62,9 @@ class ProductsController extends Controller
             'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit']));
 
         foreach ($request->file('images', []) as $file) {
-            $product->addMedia($file)->toMediaCollection('images');
+            $product->addMedia($file)
+                ->setFileName(md5(time().$file->getClientOriginalName()).$file->getClientOriginalExtension())
+                ->toMediaCollection('images');
         }
 
         $product->categories()->sync($request->input('categories',[]));
@@ -133,7 +135,9 @@ class ProductsController extends Controller
             'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit']));
 
         foreach ($request->file('images', []) as $file) {
-            $product->addMedia($file)->toMediaCollection('images');
+            $product->addMedia($file)
+                ->setFileName(md5(time().$file->getClientOriginalName()).$file->getClientOriginalExtension())
+                ->toMediaCollection('images');
         }
 
         $product->categories()->sync($request->input('categories',[]));

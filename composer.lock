@@ -4,8 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1af254d2386d8549fd44deaf0b4cbfe",
+    "content-hash": "ab25601e439d9d373bec2414f4aedfeb",
     "packages": [
+        {
+            "name": "akaunting/money",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akaunting/money.git",
+                "reference": "a39d0e18e1e56da8d82760528376fb797c161552"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akaunting/money/zipball/a39d0e18e1e56da8d82760528376fb797c161552",
+                "reference": "a39d0e18e1e56da8d82760528376fb797c161552",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.1",
+                "illuminate/view": ">=5.1",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akaunting\\Money\\Provider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akaunting\\Money\\": "./src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Duliçi",
+                    "email": "info@akaunting.com",
+                    "homepage": "https://akaunting.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Currency formatting and conversion package for Laravel.",
+            "keywords": [
+                "convert",
+                "currency",
+                "format",
+                "laravel",
+                "money"
+            ],
+            "time": "2017-12-09T07:25:06+00:00"
+        },
         {
             "name": "cocur/slugify",
             "version": "v3.1",

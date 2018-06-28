@@ -108,7 +108,13 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'DASHBOARD',
+        [
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'dashboard'
+        ],
+        'PRODUCTS AND CATEGORIES',
         [
             'text' => 'Categories',
             'url'  => 'admin/categories',
@@ -119,45 +125,18 @@ return [
             'url'         => 'admin/products',
             'icon'        => 'product-hunt'
         ],
-        'SITE SETTINGS',
+        'ORDERS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text' => 'Orders',
+            'url'  => 'admin/orders',
+            'icon' => 'shopping-cart',
         ],
+        'USERS',
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
-            'submenu' => [
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
+            'text' => 'Users',
+            'url'  => 'admin/users',
+            'icon' => 'users',
+        ]
     ],
 
     /*

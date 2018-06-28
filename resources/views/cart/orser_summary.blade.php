@@ -10,19 +10,19 @@
                 <tbody>
                 <tr>
                     <td>{{__("Tổng tiền sản phẩm")}}</td>
-                    <th>${{Cart::subtotal()}}</th>
+                    <th>@money(Cart::subtotal(), "VND")</th>
                 </tr>
-                <tr class="hidden">
-                    <td>Shipping and handling</td>
-                    <th>$10.00</th>
+                <tr class="">
+                    <td>{{__("Phí ship hàng")}}</td>
+                    <th>@money(config("cart.shipping_fee"), "VND")</th>
                 </tr>
                 <tr>
                     <td>{{__("Thuế")}}</td>
-                    <th>${{Cart::tax()}}</th>
+                    <th>@money(Cart::tax(), "VND")</th>
                 </tr>
                 <tr class="total">
                     <td>{{__("Tổng tiền thanh toán")}}</td>
-                    <th>${{Cart::total()}}</th>
+                    <th>@money(Cart::total() + config("cart.shipping_fee"), "VND")</th>
                 </tr>
                 </tbody>
             </table>

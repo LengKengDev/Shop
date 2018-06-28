@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Add new Product')
+@section('title', __("Edit product :name", ['name' => $product->name]))
 
 @section('content_header')
     <h1>{{__("Product Management")}}</h1>
-    {{ Breadcrumbs::render('admin.products.create') }}
+    {{ Breadcrumbs::render('admin.products.edit', $product) }}
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{__("Add new product")}}</h3>
+                    <h3 class="box-title">{{__("Edit product :name", ['name' => $product->name])}}</h3>
                     <div class="box-tools pull-right">
 
                     </div>
@@ -20,13 +20,13 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form action="{{route('admin.products.store')}}" method="post" id="new-product" enctype="multipart/form-data">
+                    <form action="{{route('admin.products.update', $product)}}" method="post" id="new-product" enctype="multipart/form-data">
                         <div style="text-align:center; width:100%; padding:30px;">
 
                             <a href="{{route("admin.products.index")}}" class="btn btn-danger btn-lg"><i class="fa fa-backward"></i> Back</a>
-                            <button class="btn btn-success btn-lg" style="margin-left: 50px"><i class="fa fa-fw fa-save"></i>Save</button>
+                            <button class="btn btn-success btn-lg" style="margin-left: 50px"><i class="fa fa-fw fa-save"></i>Update</button>
                         </div>
-
+                        @method("PATCH")
                         {{csrf_field()}}
                         <hr>
                         <div class="row">
@@ -35,7 +35,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control"  placeholder="Name" type="text" value="{{ old('name') }}"
+                                            <input class="form-control"  placeholder="Name" type="text" value="{{ $product->name }}"
                                                    name="name" required>
                                             @if ($errors->has('name'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -52,10 +52,10 @@
                                             <label>Status</label>
                                             <select name="status" id="" required class="form-control">
                                                 <option value="">--Choose--</option>
-                                                <option value="inStock" {{old('status' == 'inStock' ? 'selected' : '')}}>In Stock</option>
-                                                <option value="outOfStock" {{old('status' == 'outOfStock' ? 'selected' : '')}}>Out of stock</option>
-                                                <option value="active" {{old('status' == 'active' ? 'selected' : '')}}>Active</option>
-                                                <option value="deactivate" {{old('status' == 'deactivate' ? 'selected' : '')}}>Deactivate</option>
+                                                <option value="inStock" {{$product->status == 'inStock' ? 'selected' : ''}}>In Stock</option>
+                                                <option value="outOfStock" {{$product->status == 'outOfStock' ? 'selected' : ''}}>Out of stock</option>
+                                                <option value="active" {{$product->status == 'active' ? 'selected' : ''}}>Active</option>
+                                                <option value="deactivate" {{$product->status == 'deactivate' ? 'selected' : ''}}>Deactivate</option>
                                             </select>
                                             @if ($errors->has('status'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -67,7 +67,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Price (VND)</label>
-                                            <input class="form-control"  placeholder="Price" type="number" value="{{ old('price', 0) }}"
+                                            <input class="form-control"  placeholder="Price" type="number" value="{{ $product->price }}"
                                                    name="price" required min="0">
                                             @if ($errors->has('price'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Sale price (VND)</label>
-                                            <input class="form-control"  placeholder="Sale price" type="number" value="{{ old('sale_price', 0) }}"
+                                            <input class="form-control"  placeholder="Sale price" type="number" value="{{ $product->sale_price }}"
                                                    name="sale_price" min="0">
                                             @if ($errors->has('sale_price'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -89,7 +89,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ old('quantity', 1) }}"
+                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ $product->qty }}"
                                                    name="quantity" required min="0">
                                             @if ($errors->has('quantity'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity per unit</label>
-                                            <input class="form-control"  placeholder="qty per unit" type="number" value="{{ old('qty_per_unit', 1) }}"
+                                            <input class="form-control"  placeholder="qty per unit" type="number" value="{{ $product->qty_per_unit }}"
                                                    name="qty_per_unit" required min="1">
                                             @if ($errors->has('qty_per_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Minimum unit</label>
-                                            <input class="form-control"  placeholder="Minimum unit" type="number" value="{{ old('minimum_unit', 1) }}"
+                                            <input class="form-control"  placeholder="Minimum unit" type="number" value="{{ $product->minimum_unit }}"
                                                    name="qty_per_unit" required min="1">
                                             @if ($errors->has('minimum_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -123,7 +123,7 @@
                                 <div class="form-group">
                                     <label>Summary</label>
                                     <textarea name="summary" id="" cols="30"
-                                              rows="2" required class="form-control">{{old('summary')}}</textarea>
+                                              rows="2" required class="form-control">{{$product->summary}}</textarea>
                                     @if ($errors->has('summary'))
                                         <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $errors->first('summary') }}</strong>
@@ -133,7 +133,7 @@
                                 <div class="form-group">
                                     <label>Description</label>
                                     <textarea name="description" id="editor" cols="30"
-                                              rows="20" class="form-control">{!! old('description') !!}</textarea>
+                                              rows="20" class="form-control">{!! $product->description !!}</textarea>
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $errors->first('description') }}</strong>
@@ -148,7 +148,7 @@
                                         @foreach(App\Category::mainCategories()->get() as $category)
                                             <optgroup label="{{$category->name}}">
                                                 @foreach($category->childs as $sub)
-                                                    <option value="{{$sub->id}}" {{in_array($sub->id, old('categories') ?? []) ? 'selected' : ''}}>{{$sub->name}}</option>
+                                                    <option value="{{$sub->id}}" {{in_array($sub->id, $product->categories->pluck('id')->toArray() ?? []) ? 'selected' : ''}}>{{$sub->name}}</option>
                                                 @endforeach
                                             </optgroup>
                                         @endforeach
@@ -157,20 +157,47 @@
                                 <hr>
                                 <div class="form-group">
                                     <label>Variants</label><a class="btn-add-option pull-right" href="#"><i class="fa fa-plus"></i> Add option</a>
-                                    <div class="options"></div>
+                                    <div class="options">
+                                        @foreach($product->options as $option)
+                                            <div class="row" id="option-{{$option->id}}">
+                                                <div class="col-sm-4 col-sm-offset-1">
+                                                    <div class="form-group">
+                                                        <label>Option</label>
+                                                        <input class="form-control" placeholder="option" value="{{$option->name}}" name="options[{{$option->id}}][option]" required="" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn-add-value" data-id="{{$option->id}}"><i class="fa fa-fw fa-plus"></i> <label for="">Add value</label></a>
+                                                    <a href="#" class="btn-remove-option" data-id="{{$option->id}}"><i class="fa fa-fw fa-trash text-danger"></i> </a>
+                                                    <div class="values-{{$option->id}}">
+                                                        @foreach($option->values as $value)
+                                                            <div class="row value-{{$value->id}}">
+                                                                <div class="col-sm-10">
+                                                                    <input class="form-control" name="options[{{$option->id}}][values][]" placeholder="value" type="text" value="{{$value->value}}"> <br>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="#" class="btn-remove-value" data-id="{{$value->id}}" title="Remove value"><i class="fa fa-trash text-danger"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label>Images</label> <a class="btn-add-image pull-right" href="#"><i class="fa fa-plus"></i> Add new image</a>
+                                    <div class="images-delete hidden"></div>
                                     <div class="images">
-                                        <div class="input row" id="input-1">
-                                            <div class="col-sm-1">
-                                                <img src="{{old('images[0][]', 'http://via.placeholder.com/50x50')}}" alt="" id="img-1">
+                                        @foreach($product->getMedia('images') as $media)
+                                            <div class="img-demo" id="img-{{$media->id}}">
+                                                <img src="{{$media->getFullUrl('thumb')}}" alt="" class="img-demo">
+                                                <a href="#" title="Delete" class="text-danger btn-delete-image" data-id="{{$media->id}}"><i class="fa fa-trash fa-2x"></i></a>
                                             </div>
-                                            <div class="col-sm-10">
-                                                <input type="file" data-target="img-1" name="images[]" required>
-                                            </div>
-                                        </div>
+                                        @endforeach
+                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +247,6 @@
                 $('.images').append($(html));
             });
 
-
             $('.btn-add-option').click(function () {
                 var id = generateGuid();
                 var html = "<div class=\"row\" id=\"option-"+id+"\">\n" +
@@ -255,6 +281,7 @@
 
                 $('.values-'+id).append($(html));
             });
+
             $(document).on('click', '.btn-delete', function () {
                 var id = "#input-"+$(this).attr('data-id');
                 $(id).remove();
@@ -268,6 +295,13 @@
             $(document).on('click', '.btn-remove-option', function () {
                 var id = "#option-"+$(this).attr('data-id');
                 $(id).remove();
+            });
+
+            $('.btn-delete-image').click(function () {
+                var id = $(this).attr('data-id');
+                var html = "<input name='delete[]' type='hidden' value='"+id+"'/>";
+                $('.images-delete').append($(html));
+                $("#img-"+id).remove();
             });
 
             $(document).on('change', 'input[type=file]', function () {

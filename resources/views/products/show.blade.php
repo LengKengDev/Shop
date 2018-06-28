@@ -75,7 +75,7 @@
                 <h3>{{__("Thông tin sản phẩm")}}</h3>
                 <hr>
 
-                <p>{{$product->description}}</p>
+                <p>{!!  $product->description !!}</p>
                 <hr>
                 <div class="social">
                     <h4>{{__("Chia sẻ sản phẩm tới bạn bè")}}</h4>

@@ -3,3 +3,65 @@ table {
     vertical-align: middle!important;
   }
 }
+
+
+.input {
+  margin-top: 20px;
+  input {
+    margin-top: 10px;
+    height: 30px;
+  }
+  img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+label {
+  font-size: 18px;
+}
+
+.img-demo {
+  overflow: hidden;
+  transition: 0.25s;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 20px;
+  position: relative;
+
+  :hover {
+    background-color: #1a2226;
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .btn-delete-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.25s;
+    line-height: 100px;
+    text-align: center;
+  }
+
+  .btn-delete-image:hover {
+    color: red;
+  }
+}
+
+.img-demo:hover {
+  img {
+    background: #000;
+    transform: scale(2);
+  }
+
+  .btn-delete-image {
+    background-color: rgba(0,0,0,0.6);
+  }
+}

@@ -1,0 +1,42 @@
+#basket .table {
+  tfoot {
+    font-size: 18px;
+  }
+  tbody tr td {
+    vertical-align: middle;
+    input {
+      width: 50px;
+      text-align: right;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}
+#customer-order .table {
+  tfoot {
+    font-size: 18px;
+  }
+  tbody tr td {
+    vertical-align: middle;
+    input {
+      width: 50px;
+      text-align: right;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}
+
+.order-status {
+  > div {
+    background-color: #1a2226;
+    width: 100%!important;
+    height: 100px!important;
+    line-height: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+}

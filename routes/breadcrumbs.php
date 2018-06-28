@@ -124,3 +124,21 @@ Breadcrumbs::for('admin.products.edit', function ($trail, $product) {
     $trail->parent('admin.products.show', $product);
     $trail->push(__("Edit"));
 });
+
+// Orders
+Breadcrumbs::for('admin.orders', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Orders Management"), route('admin.orders.index'));
+});
+
+// Orders
+Breadcrumbs::for('admin.orders.show', function ($trail, $order) {
+    $trail->parent('admin.orders');
+    $trail->push(__("Order :id", ["id" => $order->id]));
+});
+
+// Orders
+Breadcrumbs::for('admin.orders.edit', function ($trail, $order) {
+    $trail->parent('admin.orders.show', $order);
+    $trail->push(__("Edit"));
+});

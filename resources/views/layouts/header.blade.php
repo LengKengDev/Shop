@@ -22,7 +22,7 @@
                         </form>
                     </li>
                 @endif
-                <li><a href="contact.html">{{__("Liên hệ")}}</a>
+                <li><a href="{{route("pages.contact")}}">{{__("Liên hệ")}}</a>
                 </li>
                 <li><a href="#">{{__("Sản phẩm vừa xem")}}</a>
                 </li>
@@ -84,6 +84,7 @@
                         </li>
                     </ul>
                 </li>
+                <li><a href="{{route('pages.about')}}">{{__("Về chúng tôi")}}</a>
             </ul>
 
         </div>

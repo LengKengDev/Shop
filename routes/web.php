@@ -33,10 +33,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
     Route::resource("categories", "CategoriesController", ['only' => ["index", "create", "edit", "update", "store", "destroy"]]);
     Route::resource("products", "ProductsController");
     Route::resource("orders", "OrdersController");
+    Route::resource("users", "UsersController");
 
     Route::namespace('Api')->prefix('api')->name('api.')->middleware(["auth", "auth.admin"])->group(function () {
         Route::resource("products", "ProductsController", ["only" => "index"]);
         Route::resource("orders", "OrdersController", ["only" => "index"]);
+        Route::resource("users", "UsersController", ["only" => "index"]);
     });
 });
 
@@ -45,3 +47,9 @@ Route::namespace('Account')->prefix('account')->name('account.')->middleware(["a
     Route::post("/", "UserController@update")->name("user.update");
     Route::resource('orders', 'OrdersController', ['only' => ['index', 'show']]);
 });
+
+Route::get("term", "PagesController@term")->name("pages.term");
+Route::get("contact", "PagesController@contact")->name("pages.contact");
+Route::get("faq", "PagesController@faq")->name("pages.faq");;
+Route::get("404", "PagesController@error")->name("pages.error");
+Route::get("about", "PagesController@about")->name("pages.about");

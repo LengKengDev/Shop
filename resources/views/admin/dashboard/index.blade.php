@@ -54,7 +54,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="{{route("admin.products.index")}}" class="small-box-footer">
+                <a href="{{route("admin.users.index", ['active' => 0])}}" class="small-box-footer">
                     More info <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>

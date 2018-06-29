@@ -7,13 +7,13 @@ _________________________________________________________ -->
                 <h4>Pages</h4>
 
                 <ul>
-                    <li><a href="text.html">About us</a>
+                    <li><a href="{{route("pages.about")}}">About us</a>
                     </li>
-                    <li><a href="text.html">Terms and conditions</a>
+                    <li><a href="{{route("pages.term")}}">Terms and conditions</a>
                     </li>
-                    <li><a href="faq.html">FAQ</a>
+                    <li><a href="{{route("pages.faq")}}">FAQ</a>
                     </li>
-                    <li><a href="contact.html">Contact us</a>
+                    <li><a href="{{route("pages.contact")}}">Contact us</a>
                     </li>
                 </ul>
 
@@ -22,9 +22,9 @@ _________________________________________________________ -->
                 <h4>User section</h4>
 
                 <ul>
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                    <li><a href="{{route("login")}}">Login</a>
                     </li>
-                    <li><a href="register.html">Regiter</a>
+                    <li><a href="{{route("register")}}">Regiter</a>
                     </li>
                 </ul>
 
@@ -33,36 +33,7 @@ _________________________________________________________ -->
             </div>
             <!-- /.col-md-3 -->
 
-            <div class="col-md-3 col-sm-6">
-
-                <h4>Top categories</h4>
-
-                <h5>Men</h5>
-
-                <ul>
-                    <li><a href="category.html">T-shirts</a>
-                    </li>
-                    <li><a href="category.html">Shirts</a>
-                    </li>
-                    <li><a href="category.html">Accessories</a>
-                    </li>
-                </ul>
-
-                <h5>Ladies</h5>
-                <ul>
-                    <li><a href="category.html">T-shirts</a>
-                    </li>
-                    <li><a href="category.html">Skirts</a>
-                    </li>
-                    <li><a href="category.html">Pants</a>
-                    </li>
-                    <li><a href="category.html">Accessories</a>
-                    </li>
-                </ul>
-
-                <hr class="hidden-md hidden-lg">
-
-            </div>
+            <div class="col-md-3 col-sm-6"></div>
             <!-- /.col-md-3 -->
 
             <div class="col-md-3 col-sm-6">
@@ -78,7 +49,7 @@ _________________________________________________________ -->
                     <strong>Great Britain</strong>
                 </p>
 
-                <a href="contact.html">Go to contact page</a>
+                <a href="{{route("pages.contact")}}">Go to contact page</a>
 
                 <hr class="hidden-md hidden-lg">
 

@@ -116,26 +116,74 @@ return [
         ],
         'PRODUCTS AND CATEGORIES',
         [
-            'text' => 'Categories',
+            'text' => 'Quản lý chuyên mục',
             'url'  => 'admin/categories',
-            'icon' => 'stack-exchange'
+            'icon' => 'stack-exchange',
+            'submenu' => [
+                [
+                    'text' => 'Thêm mới chuyên mục',
+                    'url'  => 'admin/categories/create',
+                    'icon' => 'plus',
+                ],
+                [
+                    'text' => 'Danh sách chuyên mục hiện có',
+                    'url'  => 'admin/categories',
+                    'icon' => 'list',
+                ]
+            ]
         ],
         [
-            'text'        => 'Products',
+            'text'        => 'Quản lý sản phẩm',
             'url'         => 'admin/products',
-            'icon'        => 'product-hunt'
+            'icon'        => 'product-hunt',
+            'submenu' => [
+                [
+                    'text' => 'Thêm mới sản phẩm',
+                    'url'  => 'admin/products/create',
+                    'icon' => 'plus',
+                ],
+                [
+                    'text' => 'Danh sách tất cả sản phẩm',
+                    'url'  => 'admin/products',
+                    'icon' => 'list',
+                ]
+            ]
         ],
         'ORDERS',
         [
-            'text' => 'Orders',
+            'text' => 'Quản lý đơn hàng',
             'url'  => 'admin/orders',
             'icon' => 'shopping-cart',
+            'submenu' => [
+                [
+                    'text' => 'Đơn hàng mới',
+                    'url'  => 'admin/categories?status=new',
+                    'icon' => 'paperclip',
+                ],
+                [
+                    'text' => 'Toàn bộ đơn hàng',
+                    'url'  => 'admin/orders',
+                    'icon' => 'list',
+                ]
+            ]
         ],
         'USERS',
         [
-            'text' => 'Users',
-            'url'  => 'admin/users',
+            'text' => 'Quản lý thành viên',
             'icon' => 'users',
+            'url'  => 'admin/users',
+            'submenu' => [
+                [
+                    'text' => 'Thành viên chờ kích hoạt',
+                    'url'  => 'admin/users?active=0',
+                    'icon' => 'question',
+                ],
+                [
+                    'text' => 'Thành viên',
+                    'url'  => 'admin/users',
+                    'icon' => 'check',
+                ]
+            ]
         ]
     ],
 

@@ -102,6 +102,19 @@ Breadcrumbs::for('admin.categories.edit', function ($trail, $category) {
 });
 
 // Products
+Breadcrumbs::for('admin.users', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Users Management"), route('admin.users.index'));
+});
+
+// Products
+Breadcrumbs::for('admin.users.show', function ($trail, $user) {
+    $trail->parent('admin.users');
+    $trail->push($user->email);
+});
+
+
+// Products
 Breadcrumbs::for('admin.products', function ($trail) {
     $trail->parent('admin.dashboard');
     $trail->push(__("Product Management"), route('admin.products.index'));
@@ -164,4 +177,34 @@ Breadcrumbs::for('account.orders.show', function ($trail, $order) {
 Breadcrumbs::for('search', function ($trail) {
     $trail->parent('home');
     $trail->push(__("Tìm kiếm"), route('search.index'));
+});
+
+// me
+Breadcrumbs::for('pages.term', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Điều khoản sử dụng"), route('pages.term'));
+});
+
+// me
+Breadcrumbs::for('pages.contact', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Thông tin liên hệ"), route('pages.contact'));
+});
+
+// me
+Breadcrumbs::for('pages.faq', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("FAQ"), route('pages.faq'));
+});
+
+// me
+Breadcrumbs::for('pages.error', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("404 Not Found"), route('pages.error'));
+});
+
+// me
+Breadcrumbs::for('pages.about', function ($trail) {
+    $trail->parent('home');
+    $trail->push(__("Giới thiệu"), route('pages.about'));
 });

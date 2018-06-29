@@ -74,7 +74,8 @@
                         <div class="form-group row mb-0">
                             <hr>
                             <div class="col-md-8 col-md-offset-4">
-                                <input type="checkbox" required> {{__('Tôi đồng ý với những điều khoản mà shop cung cấp.')}}
+                                <input type="checkbox" required>
+                                {!! __('Tôi đồng ý với những :term mà shop cung cấp.', ['term' => "<a href='".route("pages.term")."'>điều khoản</a>"]) !!}
                                 <br>
                             </div>
                             <br>

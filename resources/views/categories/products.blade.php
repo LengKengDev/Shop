@@ -31,6 +31,16 @@
                     </p>
                 </div>
                 <!-- /.text -->
+                <?php
+                    $top = 0;
+                ?>
+                @foreach($product->tags()->where('show_on_product', 1)->get() as $tag)
+                    <div class="ribbon" style="top: {{$top}}px">
+                        <div class="theribbon">{{$tag->name}}</div>
+                        <div class="ribbon-background"></div>
+                    </div>
+                    <?php $top = $top + 50; ?>
+                @endforeach
             </div>
             <!-- /.product -->
         </div>

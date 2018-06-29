@@ -63,6 +63,15 @@ class Product extends Model implements HasMedia, Buyable
         return $this->belongsToMany(Category::class, "category_products");
     }
 
+    /**
+     * get product tags
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, "product_tags");
+    }
+
 
     /**
      * get main category(category level 1)

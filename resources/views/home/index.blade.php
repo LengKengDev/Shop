@@ -70,56 +70,68 @@
         <!-- /.container -->
     </div>
     <!-- HOT PRODUCT-->
-    <div id="hot">
+    @foreach(\App\Tag::where('show_on_home', 1)->orderBy('position', 'desc')->get() as $tag)
+        <div id="hot">
 
-        <div class="box">
-            <div class="container">
-                <div class="col-md-12">
-                    <h2>{{__("Sản phẩm HOT")}}</h2>
+            <div class="box">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h2>{{$tag->title}}</h2>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="product-slider">
-                @foreach(App\Product::hotProducts()->get() as $item)
-                    <div class="item">
-                        <div class="product">
-                            <div class="flip-container">
-                                <div class="flipper">
-                                    <div class="front">
-                                        <a href="{{route("products.show", $item)}}">
-                                            <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
-                                                 alt="" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="back">
-                                        <a href="{{route("products.show", $item)}}">
-                                            <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
-                                                 alt="" class="img-responsive">
-                                        </a>
+            <div class="container">
+                <div class="product-slider">
+                    @foreach($tag->products as $item)
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="{{route("products.show", $item)}}">
+                                                <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                                     alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="{{route("products.show", $item)}}">
+                                                <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                                     alt="" class="img-responsive">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                                <a href="{{route("products.show", $item)}}" class="invisible">
+                                    <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
+                                         alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="{{route("products.show", $item)}}">{{$item->name}}</a></h3>
+                                    <p class="price">@money($item->price, 'VND')</p>
+                                </div>
+                                <?php
+                                    $top = 0;
+                                ?>
+                                @foreach($item->tags()->where('show_on_product', 1)->get() as $tag)
+                                    <div class="ribbon" style="top: {{$top}}px">
+                                        <div class="theribbon">{{$tag->name}}</div>
+                                        <div class="ribbon-background"></div>
+                                    </div>
+                                <?php $top = $top + 50; ?>
+                            @endforeach
+                                <!-- /.text -->
                             </div>
-                            <a href="{{route("products.show", $item)}}" class="invisible">
-                                <img src="{{$item->getFirstMedia("images")->getFullUrl("thumb")}}"
-                                     alt="" class="img-responsive">
-                            </a>
-                            <div class="text">
-                                <h3><a href="{{route("products.show", $item)}}">{{$item->name}}</a></h3>
-                                <p class="price">@money($item->price, 'VND')</p>
-                            </div>
-                            <!-- /.text -->
+                            <!-- /.product -->
                         </div>
-                        <!-- /.product -->
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+                <!-- /.product-slider -->
             </div>
-            <!-- /.product-slider -->
-        </div>
-        <!-- /.container -->
+            <!-- /.container -->
 
-    </div>
+        </div>
+    @endforeach
 
     <!-- BLOG HOMEPAGE-->
     <div class="box text-center" data-animate="fadeInUp">

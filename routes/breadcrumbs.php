@@ -208,3 +208,27 @@ Breadcrumbs::for('pages.about', function ($trail) {
     $trail->parent('home');
     $trail->push(__("Giới thiệu"), route('pages.about'));
 });
+
+// Tags
+Breadcrumbs::for('admin.tags', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Tags Managerment"), route('admin.tags.index'));
+});
+
+// Tags
+Breadcrumbs::for('admin.tags.create', function ($trail) {
+    $trail->parent('admin.tags');
+    $trail->push(__("Create"), route('admin.tags.create'));
+});
+
+// Tags
+Breadcrumbs::for('admin.tags.show', function ($trail, $tag) {
+    $trail->parent('admin.tags');
+    $trail->push($tag->name, route('admin.tags.show', $tag));
+});
+
+// Tags
+Breadcrumbs::for('admin.tags.edit', function ($trail, $tag) {
+    $trail->parent('admin.tags.show', $tag);
+    $trail->push($tag->name, route('admin.tags.edit', $tag));
+});

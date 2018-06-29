@@ -149,6 +149,24 @@ return [
                 ]
             ]
         ],
+        [
+            'text'        => 'Quản lý tags',
+            'url'         => 'admin/tags',
+            'icon'        => 'tag',
+            'submenu' => [
+                [
+                    'text' => 'Thêm mới tag',
+                    'url'  => 'admin/tags/create',
+                    'icon' => 'plus',
+                ],
+                [
+                    'text' => 'Danh sách tags',
+                    'url'  => 'admin/tags',
+                    'icon' => 'list',
+                ]
+            ]
+        ],
+
         'ORDERS',
         [
             'text' => 'Quản lý đơn hàng',
@@ -179,7 +197,7 @@ return [
                     'icon' => 'question',
                 ],
                 [
-                    'text' => 'Thành viên',
+                    'text' => 'Thành viên đã kích hoạt',
                     'url'  => 'admin/users',
                     'icon' => 'check',
                 ]

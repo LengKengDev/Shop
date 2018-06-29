@@ -20,18 +20,16 @@
                     <div id="mainImage">
                         <img src="{{$product->getFirstMediaUrl("images")}}" alt="" class="img-responsive">
                     </div>
-
-                    <div class="ribbon sale">
-                        <div class="theribbon">SALE</div>
-                        <div class="ribbon-background"></div>
-                    </div>
-                    <!-- /.ribbon -->
-
-                    <div class="ribbon new">
-                        <div class="theribbon">NEW</div>
-                        <div class="ribbon-background"></div>
-                    </div>
-                    <!-- /.ribbon -->
+                    <?php
+                        $top = 0;
+                    ?>
+                    @foreach($product->tags()->where('show_on_product', 1)->get() as $tag)
+                        <div class="ribbon" style="top: {{$top}}px">
+                            <div class="theribbon">{{$tag->name}}</div>
+                            <div class="ribbon-background"></div>
+                        </div>
+                        <?php $top = $top + 50; ?>
+                    @endforeach
 
                 </div>
                 <div class="col-sm-6">

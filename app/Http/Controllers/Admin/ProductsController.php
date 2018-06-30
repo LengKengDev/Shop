@@ -158,7 +158,7 @@ class ProductsController extends Controller
         }
 
         toastr()->success(__("Product has been updated!"));
-        return back();
+        return redirect()->route("admin.products.edit", $product);
     }
 
     /**

@@ -210,6 +210,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
     ],
 
 ];

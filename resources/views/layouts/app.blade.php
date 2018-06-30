@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@yield("title", config("app.name")) - {{ config("app.name") }}</title>
+    <title>@yield("title", config("app.name")) - {{ setting('app_name', config("app.name")) }}</title>
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {!! SEO::generate() !!}
+
     <link rel="stylesheet" href="{{ mix("css/app.css") }}">
     @yield("css")
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -7,25 +7,14 @@
     <div class="container">
         <div class="col-md-12">
             <div id="main-slider">
-                <div class="item">
-                    <img src="http://demo.alogs.net/img/main-slider1.jpg" alt=""
-                         class="img-responsive">
-                </div>
-                <div class="item">
-                    <img class="img-responsive"
-                         src="http://demo.alogs.net/img/main-slider2.jpg"
-                         alt="">
-                </div>
-                <div class="item">
-                    <img class="img-responsive"
-                         src="http://demo.alogs.net/img/main-slider3.jpg"
-                         alt="">
-                </div>
-                <div class="item">
-                    <img class="img-responsive"
-                         src="http://demo.alogs.net/img/main-slider4.jpg"
-                         alt="">
-                </div>
+                @foreach(\App\User::find(1)->getMedia('sliders') as $slider)
+                    <div class="item">
+                        <a href="{{$slider->getCustomProperty('link')}}">
+                            <img src="{{$slider->getFullUrl('thumb')}}" alt=""
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <!-- /#main-slider -->
         </div>
@@ -108,7 +97,16 @@
                                 </a>
                                 <div class="text">
                                     <h3><a href="{{route("products.show", $item)}}">{{$item->name}}</a></h3>
-                                    <p class="price">@money($item->price, 'VND')</p>
+                                    <p class="price">
+                                        @if(Auth::check())
+                                            {{money($item->real_price, 'VND')}}
+                                            @if ($item->hasSale())
+                                                <strike>{{money($item->price, 'VND')}}</strike>
+                                            @else
+                                                <strike></strike>
+                                            @endif
+                                        @endif
+                                    </p>
                                 </div>
                                 <?php
                                     $top = 0;

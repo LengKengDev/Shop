@@ -24,7 +24,14 @@
                 </a>
                 <div class="text">
                     <h3><a href="{{route("products.show", ['product' => $product])}}">{{$product->name}}</a></h3>
-                    <p class="price">@money($product->price, 'VND')</p>
+                    <p class="price">
+                        @if(Auth::check())
+                            @money($product->real_price, 'VND')
+                            @if ($product->hasSale())
+                                <strike>@money($product->price, 'VND')</strike>
+                            @endif
+                        @endif
+                    </p>
                     <p class="buttons">
                         <a href="{{route("products.show", ['product' => $product])}}"
                            class="btn btn-default btn-block"><i class="fa fa-eye fa-fw"></i>{{__("Xem chi tiết sản phẩm")}}</a>

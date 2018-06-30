@@ -24,6 +24,7 @@ class Controller extends BaseController
     {
         SEO::setDescription(setting('app_description', config('app.name')));
         SEOMeta::addKeyword(setting('app_keywords', setting('app_name', config('app.name'))));
+        SEO::setCanonical(url()->current());
         OpenGraph::setUrl(url()->current());
         Twitter::setUrl(url()->current());
     }

@@ -232,3 +232,15 @@ Breadcrumbs::for('admin.tags.edit', function ($trail, $tag) {
     $trail->parent('admin.tags.show', $tag);
     $trail->push($tag->name, route('admin.tags.edit', $tag));
 });
+
+// Settings
+Breadcrumbs::for('admin.settings', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Settings"), route('admin.settings.index'));
+});
+
+// Settings
+Breadcrumbs::for('admin.settings.slider', function ($trail) {
+    $trail->parent('admin.settings');
+    $trail->push(__("Slider"), route('admin.settings.slider'));
+});

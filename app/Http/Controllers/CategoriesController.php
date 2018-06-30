@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use SEO;
+use SEOMeta;
 
 class CategoriesController extends Controller
 {
@@ -30,6 +32,9 @@ class CategoriesController extends Controller
      */
     public function show(Request $request, Category $category)
     {
+        SEO::setDescription($category->name. " - ".$category->description);
+        SEOMeta::addKeyword($category->name);
+
         $orderBy = $request->input('orderBy', 'id');
         $orderType = $request->input('orderType', 'desc');
         $total = 0;

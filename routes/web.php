@@ -41,6 +41,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
         Route::resource("orders", "OrdersController", ["only" => "index"]);
         Route::resource("users", "UsersController", ["only" => "index"]);
     });
+
+    Route::prefix('settings')->name('settings.')->group(function () {
+        Route::get("/", "SettingsController@index")->name("index");
+        Route::patch("/", "SettingsController@update")->name("update");
+        Route::get("slider", "SettingsController@slider")->name("slider");
+        Route::post("slider", "SettingsController@sliderStore")->name("slider.store");
+        Route::delete("slider", "SettingsController@sliderDestroy")->name("slider.destroy");
+    });
 });
 
 Route::namespace('Account')->prefix('account')->name('account.')->middleware(["auth"])->group(function () {

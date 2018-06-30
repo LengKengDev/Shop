@@ -202,7 +202,19 @@ return [
                     'icon' => 'check',
                 ]
             ]
-        ]
+        ],
+        'SITE SETTINGS',
+        [
+            'text' => 'Slider',
+            'icon' => 'image',
+            'url'  => 'admin/settings/slider',
+        ],
+        [
+            'text' => 'Cấu hình chung',
+            'icon' => 'cog',
+            'url'  => 'admin/settings',
+        ],
+
     ],
 
     /*

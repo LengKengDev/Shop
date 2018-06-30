@@ -8,6 +8,8 @@
         @yield('title_postfix', config('adminlte.title_postfix', ''))
             - {{ setting('app_name', config("app.name")) }}
         </title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

@@ -67,7 +67,7 @@
                     <ul class="dropdown-menu header-menu">
                         @foreach(App\Category::mainCategories()->get() as $category)
                             <li>
-                                <a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}} <b class="fa fa-caret-right pull-right" style="margin-top: -30px"></b></a>
+                                <a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}} <b class="fa fa-caret-right pull-right" style="margin-top: -35px;"></b></a>
                                 <ul>
                                     @foreach($category->childs as $sub)
                                         <li><a href="{{route("categories.show", ["category" => $sub])}}">{{$sub->name}}</a></li>

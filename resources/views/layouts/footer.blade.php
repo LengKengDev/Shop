@@ -3,28 +3,17 @@ _________________________________________________________ -->
 <div id="footer" data-animate="fadeInUp">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <h4>Pages</h4>
+            <div class="col-md-6 col-sm-6">
+                <h4>Các thông tin hữu ích</h4>
 
                 <ul>
-                    <li><a href="{{route("pages.about")}}">About us</a>
+                    <li><a href="{{route("pages.about")}}">{{__("Về chúng tôi")}}</a>
                     </li>
-                    <li><a href="{{route("pages.term")}}">Terms and conditions</a>
+                    <li><a href="{{route("pages.term")}}">{{__("Điều khoản sử dụng")}}</a>
                     </li>
-                    <li><a href="{{route("pages.faq")}}">FAQ</a>
+                    <li><a href="{{route("pages.faq")}}">{{__("Câu hỏi thường gặp")}}</a>
                     </li>
-                    <li><a href="{{route("pages.contact")}}">Contact us</a>
-                    </li>
-                </ul>
-
-                <hr>
-
-                <h4>User section</h4>
-
-                <ul>
-                    <li><a href="{{route("login")}}">Login</a>
-                    </li>
-                    <li><a href="{{route("register")}}">Regiter</a>
+                    <li><a href="{{route("pages.contact")}}">{{__("Liên hệ")}}</a>
                     </li>
                 </ul>
 
@@ -33,14 +22,29 @@ _________________________________________________________ -->
             </div>
             <!-- /.col-md-3 -->
 
-            <div class="col-md-3 col-sm-6"></div>
+            <div class="col-md-6 col-sm-6">
+                <div class="col-sm-12">
+
+                    <h4>{{__("Khu vực cho khách hàng")}}</h4>
+
+                    <ul>
+                        <li><a href="{{route("login")}}">{{__("Đăng nhập")}}</a>
+                        </li>
+                        <li><a href="{{route("register")}}">{{__("Đăng ký")}}</a>
+                        </li>
+                    </ul>
+
+                    <hr class="hidden-md hidden-lg hidden-sm">
+
+                </div>
+            </div>
             <!-- /.col-md-3 -->
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 hidden">
 
-                <h4>Where to find us</h4>
+                <h4>{{__("Địa chỉ liên hệ")}}</h4>
 
-                <p><strong>Obaju Ltd.</strong>
+                <p><strong>{{setting("app_name", config("app.name"))}}</strong>
                     <br>13/25 New Avenue
                     <br>New Heaven
                     <br>45Y 73J
@@ -49,7 +53,7 @@ _________________________________________________________ -->
                     <strong>Great Britain</strong>
                 </p>
 
-                <a href="{{route("pages.contact")}}">Go to contact page</a>
+                <a href="{{route("pages.contact")}}">{{__("Đến trang liên hệ")}}</a>
 
                 <hr class="hidden-md hidden-lg">
 
@@ -58,7 +62,7 @@ _________________________________________________________ -->
 
 
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6 hidden">
 
                 <h4>Get the news</h4>
 
@@ -113,11 +117,11 @@ _________________________________________________________ -->
 <div id="copyright">
     <div class="container">
         <div class="col-md-6">
-            <p class="pull-left">© {{date("Y")}} {{config('app.name')}}.</p>
+            <p class="pull-left">© {{date("Y")}} {{setting('app_name', config('app.name'))}}.</p>
 
         </div>
         <div class="col-md-6">
-            <p class="pull-right">Develop by <a href="https://fb.com/ohmygodvt95">LK</a>
+            <p class="pull-right">Developed by <a href="https://fb.com/ohmygodvt95">LK</a>
             </p>
         </div>
     </div>

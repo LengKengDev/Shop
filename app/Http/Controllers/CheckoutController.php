@@ -30,13 +30,13 @@ class CheckoutController extends Controller
             return redirect()->route("cart.index");
         }
 
-        foreach (Cart::content() as $item) {
-            if ($item->model->qty < $item->qty) {
-                toastr()->error(__("Product :name does not have enough quantity",
-                    ["name" => $item->model->name]));
-                return redirect()->route("cart.index");
-            }
-        }
+//        foreach (Cart::content() as $item) {
+//            if ($item->model->qty < $item->qty) {
+//                toastr()->error(__("Product :name does not have enough quantity",
+//                    ["name" => $item->model->name]));
+//                return redirect()->route("cart.index");
+//            }
+//        }
 
         return view("checkout.index");
     }
@@ -52,13 +52,13 @@ class CheckoutController extends Controller
             return redirect()->route("cart.index");
         }
 
-        foreach (Cart::content() as $item) {
-            if ($item->model->qty < $item->qty) {
-                toastr()->error(__("Product :name does not have enough quantity",
-                    ["name" => $item->model->name]));
-                return redirect()->route("cart.index");
-            }
-        }
+//        foreach (Cart::content() as $item) {
+//            if ($item->model->qty < $item->qty) {
+//                toastr()->error(__("Product :name does not have enough quantity",
+//                    ["name" => $item->model->name]));
+//                return redirect()->route("cart.index");
+//            }
+//        }
 
         $order = Order::create([
             "user_id" => $request->user()->id,
@@ -93,6 +93,6 @@ class CheckoutController extends Controller
 
         Cart::destroy();
 
-        return redirect()->route("home");
+        return redirect()->route("account.orders.index");
     }
 }

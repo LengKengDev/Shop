@@ -48,7 +48,7 @@
                                         <form action=""></form>
                                         <form action="{{route("cart.update", $item->model)}}" method="POST" id="update-{{$item->rowId}}">
                                             <input type="number" value="{{$item->qty}}" class="form-control qty" name="qty" data="update-{{$item->rowId}}"
-                                                   style="width: 75px" max="{{$item->model->qty}}" step="{{$item->model->qty_per_unit}}" min="{{$item->model->qty_per_unit*$item->model->minimum_unit}}">
+                                                   style="width: 75px" step="{{$item->model->qty_per_unit}}" min="{{$item->model->minimum_unit}}">
                                             <input type="hidden" name="rowId" value="{{$item->rowId}}" >
                                             @method("PATCH")
                                             {{csrf_field()}}

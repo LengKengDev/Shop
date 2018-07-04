@@ -101,7 +101,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ $product->qty }}"
+                                            <input class="form-control"  placeholder="quantity" type="number" value="{{ $product->qty  }}"
                                                    name="qty" required min="0">
                                             @if ($errors->has('qty'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -110,8 +110,18 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Quantity per unit</label>
-                                            <input class="form-control"  placeholder="qty per unit" type="number" value="{{ $product->qty_per_unit }}"
+                                            <label>Unit label</label>
+                                            <input class="form-control"  placeholder="unit" type="text" value="{{ $product->unit }}"
+                                                   name="unit" required>
+                                            @if ($errors->has('unit'))
+                                                <span class="invalid-feedback text-danger" role="alert">
+                                                    <strong>{{ $errors->first('unit') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quantity per inc</label>
+                                            <input class="form-control"  placeholder="qty per inc" type="number" value="{{ $product->qty_per_unit }}"
                                                    name="qty_per_unit" required min="1">
                                             @if ($errors->has('qty_per_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">
@@ -120,8 +130,8 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Minimum unit</label>
-                                            <input class="form-control"  placeholder="Minimum unit" type="number" value="{{ $product->minimum_unit }}"
+                                            <label>Minimum qty</label>
+                                            <input class="form-control"  placeholder="Minimum qty" type="number" value="{{ $product->minimum_unit }}"
                                                    name="minimum_unit" required min="1">
                                             @if ($errors->has('minimum_unit'))
                                                 <span class="invalid-feedback text-danger" role="alert">

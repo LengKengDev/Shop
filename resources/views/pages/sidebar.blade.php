@@ -19,7 +19,7 @@ _________________________________________________________ -->
                     <a href="{{route("pages.contact")}}">{{__("Thông tin liên hệ")}}</a>
                 </li>
                 <li>
-                    <a href="{{route("pages.faq")}}">FAQ</a>
+                    <a href="{{route("pages.faq")}}">{{__("Câu hỏi thường gặp")}}</a>
                 </li>
 
             </ul>

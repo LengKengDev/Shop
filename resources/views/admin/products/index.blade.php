@@ -29,6 +29,7 @@
                                 <th>ID</th>
                                 <th>SKU</th>
                                 <th>Name</th>
+                                <th>Unit label</th>
                                 <th>Price</th>
                                 <th>Qty</th>
                                 <th>Updated At</th>
@@ -58,6 +59,7 @@
                     { data: 'id', name: 'id', 'width': '50px' },
                     { data: 'sku', name: 'sku' },
                     { data: 'name', name: 'name' },
+                    { data: 'unit', name: 'unit' },
                     { data: 'price', name: 'price', width: '100px' },
                     { data: 'qty', name: 'qty', width: '50px' },
                     { data: 'updated_at', name: 'updated_at', width: '150px' },

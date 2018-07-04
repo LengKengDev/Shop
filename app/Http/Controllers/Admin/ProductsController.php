@@ -48,6 +48,7 @@ class ProductsController extends Controller
             'price' => 'required|numeric',
             'sale_price' => 'nullable|numeric',
             'qty' => "numeric",
+            'unit' => "required",
             'qty_per_unit' => 'nullable|numeric',
             'minimum_unit' => 'nullable|numeric',
             'status' => Rule::in(['inStock', 'outOfStock', 'contact', 'stop']),
@@ -59,7 +60,7 @@ class ProductsController extends Controller
         }
 
         $product = Product::create($request->only(['name', 'summary', 'description',
-            'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit', 'sku']));
+            'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit', 'sku', 'unit']));
 
         foreach ($request->file('images', []) as $file) {
             $product->addMedia($file)
@@ -121,6 +122,7 @@ class ProductsController extends Controller
             'price' => 'required|numeric',
             'sale_price' => 'nullable|numeric',
             'qty' => "numeric",
+            'unit' => "required",
             'qty_per_unit' => 'nullable|numeric',
             'minimum_unit' => 'nullable|numeric',
             'status' => Rule::in(['inStock', 'outOfStock', 'contact', 'stop']),
@@ -132,7 +134,7 @@ class ProductsController extends Controller
         }
 
         $product->update($request->only(['name', 'summary', 'description',
-            'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit', 'sku']));
+            'price', 'sale_price', 'status', 'qty', 'qty_per_unit', 'minimum_unit', 'sku', 'unit']));
 
         foreach ($request->file('images', []) as $file) {
             $product->addMedia($file)

@@ -45,11 +45,11 @@
                                         @if($product->hasSale())
                                             <strike>@money($product->price, "VND")</strike>
                                         @endif
+                                        <small>/ {{$product->unit ?: 'Cái'}}</small>
                                     @else
                                         {{__("Bạn muốn xem giá?")}}<a href="{{route("login")}}"><br>{{__("Hãy đăng nhập")}}</a>
                                     @endif
                                 </p>
-
                                 <form action="{{route("cart.store")}}" method="POST" id="product-{{$product->id}}">
                                     {{csrf_field()}}
                                     @foreach($product->options as $option)
@@ -70,8 +70,8 @@
                                     <hr>
                                     <div class="input-group">
                                         <input type="number" class="form-control" placeholder="Qty" name="qty"
-                                               value="{{old('qty', $product->minimum_unit*$product->qty_per_unit)}}"
-                                               required min="{{$product->minimum_unit*$product->qty_per_unit}}" max="{{$product->qty}}" step="{{$product->qty_per_unit}}">
+                                               value="{{old('qty', $product->minimum_unit)}}"
+                                               required min="{{$product->minimum_unit}}" step="{{$product->qty_per_unit}}">
                                         <span class="input-group-btn">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-shopping-cart"></i> {{__("Thêm vào giỏ hàng")}}

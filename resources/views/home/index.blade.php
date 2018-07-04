@@ -5,6 +5,21 @@
 @section("body")
     {{--Slider--}}
     <div class="container">
+        @if(session('register'))
+            <div class="col-sm-12">
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"
+                            aria-hidden="true">&times;
+                    </button>
+                    <strong>{{__("Lời nhắn từ hệ thống")}}</strong> <br>
+                    {{__("Bạn đã đăng ký tài khoản thành công.
+                    Để KÍCH HOẠT tài khoản vui lòng gửi ảnh CMND xác minh đến email :email .", ['email' => 'sales@madeinkorea.vn'])}}
+                    <br>
+                    {{__("Nếu có bất kỳ câu hỏi nào vui lòng xem giải đáp tại ")}}
+                    <a href="{{route("pages.faq")}}">đây</a>
+                </div>
+            </div>
+        @endif
         <div class="col-md-12">
             <div id="main-slider">
                 @foreach(\App\User::find(1)->getMedia('sliders') as $slider)
@@ -59,7 +74,7 @@
         <!-- /.container -->
     </div>
     <!-- HOT PRODUCT-->
-    @foreach(\App\Tag::where('show_on_home', 1)->orderBy('position', 'desc')->get() as $tag)
+    @foreach(\App\Tag::with(['products', 'products.tags'])->where('show_on_home', 1)->orderBy('position', 'desc')->get() as $tag)
         <div id="hot">
 
             <div class="box">
@@ -135,47 +150,12 @@
     <div class="box text-center" data-animate="fadeInUp">
         <div class="container">
             <div class="col-md-12">
-                <h3 class="text-uppercase">From our blog</h3>
+                <h3 class="text-uppercase">{{__("Chúng tôi luôn phục vụ 24/24")}}</h3>
 
-                <p class="lead">What's new in the world of fashion? <a
-                            href="blog.html">Check our blog!</a>
+                <p class="lead">{!! __("24 giờ một ngày, 7 ngày trong một tuần. <br>
+                Chúng tôi luôn đảm bảo bạn có thể đặt hàng bất kỳ thời gian nào trong ngày. ")!!}</a>
                 </p>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-md-12" data-animate="fadeInUp">
-
-            <div id="blog-homepage" class="row">
-                <div class="col-sm-6">
-                    <div class="post">
-                        <h4><a href="post.html">Fashion now</a></h4>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
-                        </p>
-                        <hr>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="post">
-                        <h4><a href="post.html">Who is who - example blog post</a></h4>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
-                        </p>
-                        <hr>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- /#blog-homepage -->
         </div>
     </div>
 

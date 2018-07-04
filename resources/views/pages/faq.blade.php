@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section("title", __("FAQ"))
+@section("title", __("Câu hỏi thường gặp"))
 
 @section("breadcrumbs")
     {{ Breadcrumbs::render('pages.faq') }}
@@ -13,7 +13,7 @@
                 @include("pages.sidebar")
                 <div class="col-md-9">
                     <div class="box" id="contact">
-                        <h1>Frequently asked questions</h1>
+                        <h1>{{__("Câu hỏi thường gặp")}}</h1>
 
                         <p class="lead">Are you curious about something? Do you have some kind of problem with our products?</p>
                         <p>Please feel free to contact us, our customer service center is working for you 24/7.</p>

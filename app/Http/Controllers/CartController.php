@@ -43,14 +43,15 @@ class CartController extends Controller
             return back();
         }
 
-        $qty = $request->input('qty', $product->minimum_unit*$product->qty_per_unit);
+        $qty = $request->input('qty', $product->qty_per_unit);
 
-        if($product->qty > 0 && $product->qty >= $qty) {
-            Cart::add($product, $qty, $request->input('option', []));
-            toastr()->success(__("Item was added to your cart!"));
-        } else {
-            toastr()->error(__("The current system no longer has enough quantity!"));
-        }
+//        if($product->qty > 0 && $product->qty >= $qty) {
+//
+//        } else {
+//            toastr()->error(__("The current system no longer has enough quantity!"));
+//        }
+        Cart::add($product, $qty, $request->input('option', []));
+        toastr()->success(__("Item was added to your cart!"));
 
         return back();
     }
@@ -73,13 +74,15 @@ class CartController extends Controller
             return back();
         }
 
-        $qty = $request->input("qty", $product->minimum_unit*$product->qty_per_unit);
-        if ($product->qty >= $qty && $product->qty >= $qty) {
-            Cart::update($request->input("rowId", ""), $qty);
-            toastr()->success(__("Quantity has been changed!"));
-        } else {
-            toastr()->error(__("The current system no longer has enough quantity!"));
-        }
+        $qty = $request->input("qty", $product->qty_per_unit);
+//        if ($product->qty >= $qty && $product->qty >= $qty) {
+//
+//        } else {
+//            toastr()->error(__("The current system no longer has enough quantity!"));
+//        }
+
+        Cart::update($request->input("rowId", ""), $qty);
+        toastr()->success(__("Quantity has been changed!"));
 
         return back();
     }

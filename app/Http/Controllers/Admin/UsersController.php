@@ -89,7 +89,11 @@ class UsersController extends Controller
             toastr()->error(__("Không thể xoá tài khoản quản lý"));
             return back();
         }
-        $user->delete();
+        if ($user->active == true) {
+            $user->delete();
+        } else {
+            $user->forceDelete();
+        }
         toastr()->success(__("Xoá tài khoản :name thành công.", ["name" => $user->email]));
         return back();
     }

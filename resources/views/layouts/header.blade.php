@@ -2,7 +2,7 @@
 <div id="top">
     <div class="container">
         <div class="col-md-6 offer" data-animate="fadeInDown">
-            <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a>
+            Liên lạc trực tiếp qua zalo, viber: 01239681901: từ 9h AM đến 5h PM
         </div>
         <div class="col-md-6" data-animate="fadeInDown">
             <ul class="menu">
@@ -24,7 +24,7 @@
                 @endif
                 <li><a href="{{route("pages.contact")}}">{{__("Liên hệ")}}</a>
                 </li>
-                <li><a href="#">{{__("Sản phẩm vừa xem")}}</a>
+                <li><a href="#">{{__("Câu hỏi thường gặp")}}</a>
                 </li>
             </ul>
         </div>
@@ -60,28 +60,21 @@
         <div class="navbar-collapse collapse" id="navigation">
 
             <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="{{route('home')}}">{{__("Trang chủ")}}</a>
+                <li><a href="{{route('home')}}">{{__("Trang chủ")}}</a>
                 </li>
-                <li class="dropdown yamm-fw">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{__("Danh mục sản phẩm")}} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="yamm-content">
-                                <div class="row">
-                                    @foreach(App\Category::mainCategories()->get() as $category)
-                                        <div class="col-sm-4">
-                                            <h5><a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}}</a></h5>
-                                            <ul>
-                                                @foreach($category->childs as $sub)
-                                                    <li><a href="{{route("categories.show", ["category" => $sub])}}">{{$sub->name}}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
+                    <ul class="dropdown-menu header-menu">
+                        @foreach(App\Category::mainCategories()->get() as $category)
+                            <li>
+                                <a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}} <b class="fa fa-caret-right pull-right" style="margin-top: -30px"></b></a>
+                                <ul>
+                                    @foreach($category->childs as $sub)
+                                        <li><a href="{{route("categories.show", ["category" => $sub])}}">{{$sub->name}}</a></li>
                                     @endforeach
-                                </div>
-                            </div>
-                            <!-- /.yamm-content -->
-                        </li>
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
                 <li><a href="{{route('pages.about')}}">{{__("Về chúng tôi")}}</a>

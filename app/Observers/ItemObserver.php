@@ -14,7 +14,6 @@ class ItemObserver
      */
     public function created(Item $item)
     {
-        $item->product->qty = $item->product->qty - $item->qty;
-        $item->product->save();
+
     }
 }

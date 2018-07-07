@@ -14,6 +14,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">{{__("List")}}</h3>
                     <div class="box-tools pull-right">
+                        <a href="{{route('admin.import.create')}}" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-sign-in"></i> Import</a>
                         <a class="btn btn-success btn-sm" href="{{route("admin.products.create")}}">
                             <i class="fa fa-plus"></i> {{__("Add new product")}}
                         </a>

@@ -244,3 +244,9 @@ Breadcrumbs::for('admin.settings.slider', function ($trail) {
     $trail->parent('admin.settings');
     $trail->push(__("Slider"), route('admin.settings.slider'));
 });
+
+// Import
+Breadcrumbs::for('admin.import', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__("Import product"), route('admin.import.create'));
+});

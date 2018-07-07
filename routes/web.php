@@ -35,6 +35,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
     Route::resource("orders", "OrdersController");
     Route::resource("users", "UsersController");
     Route::resource("tags", "TagsController");
+    Route::resource("import", "ImportController", ['only' => ['create', 'store']]);
 
     Route::namespace('Api')->prefix('api')->name('api.')->middleware(["auth", "auth.admin"])->group(function () {
         Route::resource("products", "ProductsController", ["only" => "index"]);

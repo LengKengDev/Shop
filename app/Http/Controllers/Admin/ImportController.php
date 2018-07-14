@@ -19,10 +19,23 @@ class ImportController extends Controller
 
     public function store(Request $request)
     {
+        $sum = 0;
+
         if($request->hasFile('file')) {
             $path=$request->file('file')->getRealPath();
             $data = Excel::load($path)->get();
+
             foreach ($data as $key => $value) {
+                if (is_null($value['ma_san_pham'])) {
+                    continue;
+                }
+
+                $p = Product::where('sku', $value['ma_san_pham'])->first();
+
+                if (!is_null($p)) {
+                    continue;
+                }
+
                 $cate = Category::firstOrCreate(['name' => $value['menu_lon']], ['description' => $value['menu_lon']]);
                 $sub = $cate->childs()->firstOrCreate(['name' => $value['menu_nho']], ['description' => $value['menu_nho']]);
 
@@ -40,6 +53,8 @@ class ImportController extends Controller
                 ]);
 
                 $product->categories()->sync([$sub->id]);
+
+                $sum++;
 
                 if ($value['ten_option1'] != null) {
                     $option = Option::create(['product_id' => $product->id, 'name' => $value['ten_option1']]);
@@ -71,7 +86,7 @@ class ImportController extends Controller
 
             }
         }
-        toastr()->success("Import success!");
+        toastr()->success(__("Import success! :sum product(s) added", ['sum' => $sum]));
         return back();
     }
 }

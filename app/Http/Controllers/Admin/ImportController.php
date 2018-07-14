@@ -62,8 +62,10 @@ class ImportController extends Controller
                         ->toMediaCollection('images');
                 } else {
                     foreach (explode("\n", $value['anh']) as $url) {
-                        $product->addMediaFromUrl($url)
-                            ->toMediaCollection('images');
+                        if(filter_var($url, FILTER_VALIDATE_URL)) {
+                            $product->addMediaFromUrl($url)
+                                ->toMediaCollection('images');
+                        }
                     }
                 }
 

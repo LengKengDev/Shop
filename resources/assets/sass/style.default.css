@@ -154,6 +154,15 @@ h1 {
   font-weight: 100;
   text-align: center;
 }
+
+#hot h1 {
+  text-transform: uppercase;
+  font-size: 36px;
+  color: #4fbfa8;
+  font-weight: 100;
+  text-align: center;
+}
+
 #hot .product-slider {
   margin-bottom: 20px;
 }

@@ -13,6 +13,9 @@
                     </li>
                 @else
                     <li><a href="{{route('account.user')}}">{{__("Xin chào")}}, {{Auth::user()->name}}</a></li>
+                    @can('manager')
+                        <li><a href="{{route('admin.dashboard')}}">{{__("Admin panel")}}</a></li>
+                    @endcan
                     <li><a href="#" onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                             {{__("Đăng xuất")}}
@@ -24,7 +27,7 @@
                 @endif
                 <li><a href="{{route("pages.contact")}}">{{__("Liên hệ")}}</a>
                 </li>
-                <li><a href="#">{{__("Câu hỏi thường gặp")}}</a>
+                <li><a href="{{route('pages.faq')}}">{{__("Câu hỏi thường gặp")}}</a>
                 </li>
             </ul>
         </div>

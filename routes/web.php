@@ -55,6 +55,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
 Route::namespace('Account')->prefix('account')->name('account.')->middleware(["auth"])->group(function () {
     Route::get("/", "UserController@index")->name("user");
     Route::post("/", "UserController@update")->name("user.update");
+    Route::post("/password", "UserController@password")->name("user.password");
     Route::resource('orders', 'OrdersController', ['only' => ['index', 'show']]);
 });
 

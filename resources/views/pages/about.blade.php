@@ -12,57 +12,17 @@
             <div class="col-sm-12">
                 @include("pages.sidebar")
                 <div class="col-md-9"><div class="box" id="text-page">
-                        <h1>About us</h1>
+                        <h1 class="text-center">Giới thiệu Công ty</h1>
 
-                        <p class="lead">This page aim is to show you the most common HTML elements appearance on the website. For further reference please visit official <a href="http://getbootstrap.com/css/" class="external">Bootstrap website</a>.</p>
-
-                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris
-                            placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
-                            rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
-
-                        <h2>Header Level 2</h2>
-
-                        <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ol>
-
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada
-                                tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-                        </blockquote>
-
-                        <h3>Header Level 3</h3>
-
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ul>
+                        <p class="lead text-center"><a href="{{route('home')}}">Madeinkorea.com.vn</a> là hệ thống đầu tiên và lớn nhất tại Việt Nam chuyên bán sỉ quần áo, mỹ phẩm và nhiều sản phẩm khác sản xuất tại Hàn Quốc.</p>
 
                         <hr>
-
-                        <h2>Images</h2>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <p class="text-center">
-                                    <img src="img/detailsquare.jpg" class="img-circle img-responsive" alt="">
-                                </p>
-                                <p class="text-center">circle</p>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="text-center">
-                                    <img src="img/detailsquare.jpg" class="img-thumbnail  img-responsive" alt="">
-                                </p>
-                                <p class="text-center">thumbnail</p>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="text-center">
-                                    <img src="img/detailsquare.jpg" class="img-rounded img-responsive" alt="">
-                                </p>
-                                <p class="text-center">rounded</p>
-                            </div>
-                        </div>
+                        <p class="text-justify"><a href="{{route('home')}}">Madeinkorea.com.vn</a> là hệ thống đầu tiên và lớn nhất tại Việt Nam chuyên bán sỉ quần áo, mỹ phẩm và nhiều sản phẩm khác sản xuất tại Hàn Quốc. Chúng tôi làm việc trực tiếp với các đối tác là hàng trăm cơ sở chuyên sản xuất và cung cấp các mặt hàng thời trang nam, nữ, trẻ em tại Hàn Quốc vì vậy luôn đảm bảo mang tới Quý khách hàng những sản phẩm thời trang mới nhất, đi đầu xu hướng thị trường với giá tốt nhất. Ngoài lĩnh vực thời trang, chúng tôi còn có hàng trăm sản phẩm chăm sóc sức khỏe và sắc đẹp với rất nhiều thương hiệu nổi tiếng của Hàn Quốc. Tại Hàn Quốc, chúng tôi đã có giấy phép đăng kí kinh doanh chính thức. Đồng thời tại Việt Nam, chúng tôi hiện cũng đang giao dịch với nhiều đối tác kinh doanh uy tín ở các thành phố lớn như Hà Nội, Sài Gòn, và Vũng Tàu. Với vai trò là cầu nối giữa các nhà sản xuất tại Hàn Quốc và các cơ sở kinh doanh tại Việt Nam.
+                        </p>
+                        <hr>
+                        <p class="text-justify">
+                            Các sản phẩm quý khách mua tại <a href="{{route('home')}}">Madeinkorea.com.vn</a> được chúng tôi chuyển trực tiếp từ nhà cung cấp tới tay của quý khách mà không thông qua bất kì một trung gian nào để đảm bảo tính minh bạch và đảm bảo quý khách có thể nhận hàng trong thời gian nhanh nhất. Chúng tôi luôn mong muốn mang lại cho quý khách hàng những sản phẩm tốt nhất với giá tốt nhất. Bên cạnh đó, chúng tôi cũng sẵn sàng hỗ trợ, tạo điều kiện có thiện chí hợp tác với những cơ sở kinh doanh mới, những doanh nghiệp vừa và nhỏ để cùng nhau phát triển.
+                        </p>
 
                     </div></div>
 

@@ -41,8 +41,8 @@
         <div class="navbar-header">
 
             <a class="navbar-brand home" href="{{route('home')}}" data-animate-hover="bounce">
-                <img src="http://demo.alogs.net/img/logo.png" alt="Obaju logo" class="hidden-xs">
-                <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                <img src="/images/logo.png" alt="{{setting('app_name', config('app.name'))}}" class="hidden-xs img-logo">
+                <img src="/images/logo.png" alt="{{setting('app_name', config('app.name'))}}" class="visible-xs img-logo"><span class="sr-only">Obaju - go to homepage</span>
             </a>
             <div class="navbar-buttons">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
@@ -70,7 +70,7 @@
                     <ul class="dropdown-menu header-menu">
                         @foreach(App\Category::mainCategories()->get() as $category)
                             <li>
-                                <a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}} <b class="fa fa-caret-right pull-right" style="margin-top: -35px;"></b></a>
+                                <a href="{{route("categories.show", ["category" => $category])}}">{{$category->name}} <b class="fa fa-caret-right pull-right" style="margin-top: -30px;"></b></a>
                                 <ul>
                                     @foreach($category->childs as $sub)
                                         <li><a href="{{route("categories.show", ["category" => $sub])}}">{{$sub->name}}</a></li>

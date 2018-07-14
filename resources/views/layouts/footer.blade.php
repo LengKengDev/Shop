@@ -3,7 +3,7 @@ _________________________________________________________ -->
 <div id="footer" data-animate="fadeInUp">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-3 col-sm-3">
                 <h4>Các thông tin hữu ích</h4>
 
                 <ul>
@@ -22,7 +22,7 @@ _________________________________________________________ -->
             </div>
             <!-- /.col-md-3 -->
 
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-3 col-sm-3">
                 <div class="col-sm-12">
 
                     <h4>{{__("Khu vực cho khách hàng")}}</h4>
@@ -40,61 +40,47 @@ _________________________________________________________ -->
             </div>
             <!-- /.col-md-3 -->
 
-            <div class="col-md-3 col-sm-6 hidden">
+            <div class="col-md-6 col-sm-6">
 
-                <h4>{{__("Địa chỉ liên hệ")}}</h4>
+                <h4 class="text-center">{{__("Địa chỉ liên hệ")}} (<a href="{{route("pages.contact")}}">{{__(" Đến trang liên hệ")}}</a>)</h4>
 
-                <p><strong>{{setting("app_name", config("app.name"))}}</strong>
-                    <br>13/25 New Avenue
-                    <br>New Heaven
-                    <br>45Y 73J
-                    <br>England
-                    <br>
-                    <strong>Great Britain</strong>
-                </p>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h5><i class="fa fa-map-marker"></i> Hàn Quốc</h5>
+                        <p>Room 302
+                            <br>Munbal road 115
+                            <br>Pajusi
+                            <br>Gunggido
+                            <br>
+                            <strong>Korea</strong>
+                        </p>
+                    </div>
+                    <div class="col-sm-3">
+                        <h5><i class="fa fa-map-marker"></i> Việt Nam</h5>
+                        <p>Phòng 105 – B2
+                            <br>TT Vĩnh Hồ
+                            <br>Quận Đống Đa
+                            <br>TP Hà Nội
+                            <br>
+                            <strong>Việt Nam</strong>
+                        </p>
+                    </div>
+                    <!-- /.col-sm-4 -->
+                    <div class="col-sm-6">
+                        <h5><i class="fa fa-phone"></i> Kênh liên lạc</h5>
+                        <b>Chị Mai Lương – Chị Nguyễn Thương</b> <br> <br>
+                        <p>Chat qua Facebook: Ed Eden Korea - made in Korea wholesale
+                            <br>		 -> 24/24 h
+                        </p>
+                        <p>Liên lạc trực tiếp qua zalo, viber: 01239681901
+                            <br> 				 -> từ 9h AM đến 5h PM</p>
+                        <p>Email: <strong><a href="mailto:madeinkoreabansi@gmail.com">madeinkoreabansi@gmail.com</a></strong></p>
+                    </div>
+                    <!-- /.col-sm-4 -->
 
-                <a href="{{route("pages.contact")}}">{{__("Đến trang liên hệ")}}</a>
+                </div>
 
                 <hr class="hidden-md hidden-lg">
-
-            </div>
-            <!-- /.col-md-3 -->
-
-
-
-            <div class="col-md-3 col-sm-6 hidden">
-
-                <h4>Get the news</h4>
-
-                <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-
-                <form>
-                    <div class="input-group">
-
-                        <input type="text" class="form-control">
-
-                        <span class="input-group-btn">
-
-			    <button class="btn btn-default" type="button">Subscribe!</button>
-
-			</span>
-
-                    </div>
-                    <!-- /input-group -->
-                </form>
-
-                <hr>
-
-                <h4>Stay in touch</h4>
-
-                <p class="social">
-                    <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
-                    <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
-                </p>
-
 
             </div>
             <!-- /.col-md-3 -->

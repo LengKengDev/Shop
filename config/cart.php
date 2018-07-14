@@ -64,6 +64,6 @@ return [
 
     ],
 
-    'shipping_fee' => 20000
+    'shipping_fee' => 0
 
 ];

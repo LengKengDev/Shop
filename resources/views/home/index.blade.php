@@ -80,7 +80,7 @@
             <div class="box">
                 <div class="container">
                     <div class="col-md-12">
-                        <h2>{{$tag->title}}</h2>
+                        <h1>{{$tag->title}}</h1>
                     </div>
                 </div>
             </div>

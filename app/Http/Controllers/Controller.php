@@ -27,5 +27,6 @@ class Controller extends BaseController
         SEO::setCanonical(url()->current());
         OpenGraph::setUrl(url()->current());
         Twitter::setUrl(url()->current());
+        OpenGraph::addImage(route('home').'/images/logo.png');
     }
 }

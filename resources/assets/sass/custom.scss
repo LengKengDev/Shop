@@ -1,6 +1,10 @@
 .toast-top-right {
     top: 130px!important;
 }
+.img-logo {
+    height: 50px;
+}
+
 
 table td {
     vertical-align: middle!important;
@@ -11,8 +15,8 @@ table td {
 
         li a {
             display: block;
-            height: 60px;
-            line-height: 55px;
+            height: 40px;
+            line-height: 38px;
             text-decoration: none;
             white-space: nowrap;
             color: #000;
@@ -45,13 +49,13 @@ table td {
             padding: 5px 0;
         }
 
-        li:hover li { float: none; a {color: #fff} }
+        li:hover li { float: none; margin-bottom: 3px!important; a {color: #fff} }
 
         li:hover a { background: #1bc2a2; }
 
-        li:hover li a:hover { background: #2c3e50; color: #fff; line-height: 60px;}
+        li:hover li a:hover { background: #2c3e50; color: #fff; line-height: 38px;}
 
-        .main-navigation li ul li { border-top: 0; }
+        .main-navigation li ul li { border-top: 0;}
 
         li:hover > ul {
             left: 100%;
@@ -65,6 +69,10 @@ table td {
         }
 
         ul:after { clear: both; }
+
+        ul li ul li {
+            margin-bottom: 5px;
+        }
     }
 }
 

@@ -114,6 +114,11 @@ return [
             'url'  => 'admin',
             'icon' => 'dashboard'
         ],
+        [
+            'text' => 'Change password',
+            'url'  => 'account',
+            'icon' => 'key'
+        ],
         'PRODUCTS AND CATEGORIES',
         [
             'text' => 'Quản lý chuyên mục',

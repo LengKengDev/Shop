@@ -48,7 +48,7 @@
                                 <h3><i class="fa fa-phone"></i> Kênh liên lạc</h3>
                                 <b>Chị Mai Lương – Chị Nguyễn Thương
                                     .</b> <hr>
-                                <p>Chat qua Facebook: Ed Eden Korea - made in Korea wholesale
+                                <p>Chat qua Facebook: Eden Korea - made in Korea wholesale
                                     <br>		 -> 24/24 h
                                 </p>
                                 <p>Liên lạc trực tiếp qua zalo, viber: 01239681901

@@ -149,7 +149,9 @@
                                 </a>
                                 <div class="text">
                                     <h3>{{$item->name}}</h3>
-                                    <p class="price">@money($item->price, 'VND')</p>
+                                    @if(Auth::check())
+                                        <p class="price">{{money($item->price, 'VND')}}</p>
+                                    @endif
                                 </div>
                             </div>
                             <!-- /.product -->
@@ -178,7 +180,9 @@
                                 </a>
                                 <div class="text">
                                     <h3>{{$item->name}}</h3>
-                                    <p class="price">@money($product->price)</p>
+                                    @if(Auth::check())
+                                        <p class="price">{{money($item->price, 'VND')}}</p>
+                                    @endif
                                 </div>
                             </div>
                             <!-- /.product -->
@@ -188,7 +192,7 @@
 
             </div>
 
-            <div class="row same-height-row">
+            <div class="row same-height-row hidden">
                 <div class="col-md-3 col-sm-6">
                     <div class="box same-height">
                         <h3>{{__("Những sản phẩm đã xem")}}</h3>

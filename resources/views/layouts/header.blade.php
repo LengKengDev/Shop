@@ -2,7 +2,11 @@
 <div id="top">
     <div class="container">
         <div class="col-md-6 offer" data-animate="fadeInDown">
-            Liên lạc trực tiếp qua zalo, viber: 01239681901: từ 9h AM đến 5h PM
+            Zalo, viber: 01239681901.
+            @if(!Auth::check())
+                <b class="text-center blink_me" style="color: red;">{{__("Để xem được giá bán, đăng ký làm thành viên")}}
+                    </b><a href="{{route('register')}}">{{ __(" tại đây") }}</a>.
+            @endif
         </div>
         <div class="col-md-6" data-animate="fadeInDown">
             <ul class="menu">

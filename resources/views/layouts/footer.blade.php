@@ -44,6 +44,11 @@ _________________________________________________________ -->
 
                 <h4 class="text-center">{{__("Địa chỉ liên hệ")}} (<a href="{{route("pages.contact")}}">{{__(" Đến trang liên hệ")}}</a>)</h4>
 
+                @if(!Auth::check())
+                    <h4 class="text-center blink_me" style="color: red;">{{__("Để xem được giá bán của sản phẩm, vui lòng đăng ký làm thành viên chính thức")}}
+                        <a href="{{route('register')}}">{{ __(" tại đây") }}</a>.</h4>
+                @endif
+
                 <div class="row">
                     <div class="col-sm-3">
                         <h5><i class="fa fa-map-marker"></i> Hàn Quốc</h5>
@@ -69,7 +74,7 @@ _________________________________________________________ -->
                     <div class="col-sm-6">
                         <h5><i class="fa fa-phone"></i> Kênh liên lạc</h5>
                         <b>Chị Mai Lương – Chị Nguyễn Thương</b> <br> <br>
-                        <p>Chat qua Facebook: Ed Eden Korea - made in Korea wholesale
+                        <p>Chat qua Facebook: Eden Korea - made in Korea wholesale
                             <br>		 -> 24/24 h
                         </p>
                         <p>Liên lạc trực tiếp qua zalo, viber: 01239681901

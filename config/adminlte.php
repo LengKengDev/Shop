@@ -151,6 +151,11 @@ return [
                     'text' => 'Danh sách tất cả sản phẩm',
                     'url'  => 'admin/products',
                     'icon' => 'list',
+                ],
+                [
+                    'text' => 'Sản phẩm đã xoá',
+                    'url'  => 'admin/soft_delete',
+                    'icon' => 'trash',
                 ]
             ]
         ],

@@ -32,6 +32,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
     Route::get("/", "DashboardController@index")->name("dashboard");
     Route::resource("categories", "CategoriesController", ['only' => ["index", "create", "edit", "update", "store", "destroy"]]);
     Route::resource("products", "ProductsController");
+    Route::get('soft_delete', 'ProductsController@index2')->name('products.index2');
     Route::resource("orders", "OrdersController");
     Route::resource("users", "UsersController");
     Route::resource("tags", "TagsController");
@@ -39,6 +40,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(["auth", 
 
     Route::namespace('Api')->prefix('api')->name('api.')->middleware(["auth", "auth.admin"])->group(function () {
         Route::resource("products", "ProductsController", ["only" => "index"]);
+        Route::get('soft_delete', 'ProductsController@index2')->name('products.index2');
         Route::resource("orders", "OrdersController", ["only" => "index"]);
         Route::resource("users", "UsersController", ["only" => "index"]);
     });

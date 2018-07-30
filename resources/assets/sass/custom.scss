@@ -6,12 +6,13 @@
 }
 
 .blink_me {
-    animation: blinker 1s linear infinite;
+    text-shadow: 0 0 1px #000;
+    animation: blinker 0.5s linear infinite;
 }
 
 @keyframes blinker {
     50% {
-        opacity: 0;
+        opacity: 0.6;
     }
 }
 

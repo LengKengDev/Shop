@@ -66,7 +66,7 @@ $ convert -version
 ### Install
 
 ```bash
-$ git clone http://devops.runsystem.info/input-tools/web.git
+$ git clone https://github.com/LengKengDev/Shop.git
 $ cd web
 $ composer install
 $ yarn
@@ -84,7 +84,6 @@ $ cd public && ln -s ../storage/app/storage storage
 ```bash
 $ php artisan migrate
 $ php artisan db:seed
-$ php artisan queue:work
 ```
 
 ## Contributors
